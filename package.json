@@ -1,0 +1,56 @@
+{
+  "name": "nostr-commerce-framework",
+  "version": "0.1.0",
+  "description": "A comprehensive framework for building interaction and commerce features on Nostr",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "format": "prettier --write 'src/**/*.ts'",
+    "docs": "typedoc",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
+  },
+  "keywords": [
+    "nostr",
+    "commerce",
+    "framework",
+    "cryptocurrency",
+    "payments",
+    "social"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nostr-tools": "^1.17.0",
+    "winston": "^3.11.0",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "ts-jest": "^29.1.0",
+    "typedoc": "^0.24.1",
+    "typescript": "^5.0.3"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
