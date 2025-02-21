@@ -27,12 +27,15 @@ A comprehensive, open-source framework for building advanced interaction and com
   - Comprehensive test coverage
   - Plugin system for extensibility
 
-## Prerequisites
+## Documentation
 
-- Node.js (v16 or higher)
-- npm or yarn
-- Basic understanding of Nostr protocol
-- (Optional) Bitcoin and Lightning Network nodes for testing
+Our documentation is organized into several comprehensive guides:
+
+- [**API Reference**](docs/API.md) - Complete API documentation and usage examples
+- [**Architecture Overview**](docs/ARCHITECTURE.md) - System design and core components
+- [**Security Best Practices**](docs/SECURITY.md) - Security guidelines and implementation
+- [**Plugin Development**](docs/PLUGINS.md) - Guide for creating and managing plugins
+- [**Commerce Integration**](docs/COMMERCE.md) - Payment processing and commerce features
 
 ## Quick Start
 
@@ -42,21 +45,6 @@ A comprehensive, open-source framework for building advanced interaction and com
 npm install nostr-commerce-framework
 ```
 
-### Configuration
-
-Create a `.env` file based on `.env.example`:
-
-```env
-# Required Configuration
-RELAY_URLS=wss://relay1.com,wss://relay2.com
-PUBLIC_KEY=your-public-key
-PRIVATE_KEY=your-private-key
-
-# Optional Bitcoin/Lightning Configuration
-BITCOIN_RPC_URL=http://localhost:8332
-LIGHTNING_NODE_URL=https://localhost:9735
-```
-
 ### Basic Usage
 
 ```typescript
@@ -64,19 +52,13 @@ import { NostrCommerce } from 'nostr-commerce-framework';
 
 // Initialize the framework
 const framework = new NostrCommerce({
-  relays: ['wss://relay.primal.net'],
-  publicKey: process.env.PUBLIC_KEY,
-  privateKey: process.env.PRIVATE_KEY
+  relays: ['wss://relay.example.com'],
+  publicKey: 'your-public-key',
+  privateKey: 'your-private-key'
 });
 
 // Start the framework
 await framework.start();
-
-// Send a message
-const messageId = await framework.interaction.sendMessage(
-  'Hello Nostr!',
-  'recipient-public-key'
-);
 
 // Create an invoice
 const invoice = await framework.commerce.createInvoice({
@@ -90,7 +72,16 @@ framework.commerce.on('paymentReceived', (payment) => {
 });
 ```
 
-## Local Development
+## Development
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Basic understanding of Nostr protocol
+- (Optional) Bitcoin and Lightning Network nodes for testing
+
+### Local Setup
 
 1. Clone the repository:
    ```bash
@@ -113,14 +104,22 @@ framework.commerce.on('paymentReceived', (payment) => {
    npm test
    ```
 
-5. Run the example application:
-   ```bash
-   npm run example
-   ```
+### Configuration
+
+Create a `.env` file based on `.env.example`:
+
+```env
+# Required Configuration
+RELAY_URLS=wss://relay1.com,wss://relay2.com
+PUBLIC_KEY=your-public-key
+PRIVATE_KEY=your-private-key
+
+# Optional Bitcoin/Lightning Configuration
+BITCOIN_RPC_URL=http://localhost:8332
+LIGHTNING_NODE_URL=https://localhost:9735
+```
 
 ## Testing
-
-The framework includes comprehensive tests for all components:
 
 ```bash
 # Run all tests
@@ -135,23 +134,15 @@ npm test -- -t "Commerce Module"
 
 ### Integration Testing
 
-To test Bitcoin and Lightning Network integration:
+For Bitcoin and Lightning Network integration testing:
 
 1. Set up a local Bitcoin node (or use regtest)
-2. Configure Lightning Network node (LND, c-lightning, etc.)
-3. Update `.env` with appropriate connection details
+2. Configure Lightning Network node
+3. Update `.env` with connection details
 4. Run integration tests:
    ```bash
    npm run test:integration
    ```
-
-## Documentation
-
-- [API Reference](docs/API.md)
-- [Architecture Overview](docs/ARCHITECTURE.md)
-- [Security Best Practices](docs/SECURITY.md)
-- [Plugin Development](docs/PLUGINS.md)
-- [Commerce Integration](docs/COMMERCE.md)
 
 ## Contributing
 
@@ -167,7 +158,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## Security
 
-For security concerns, please open a security advisory on GitHub.
+For security concerns, please open a security advisory on GitHub. See our [Security Best Practices](docs/SECURITY.md) for more information.
 
 ## Support
 
