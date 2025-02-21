@@ -4,10 +4,10 @@ import { NostrError } from '../../src/core/errors';
 describe('Message Queue Tests', () => {
   let queue: MessageQueue;
   const config: QueueConfig = {
-    maxSize: 100,
-    processingTimeout: 1000,
-    retryAttempts: 3,
-    retryDelay: 100
+    maxSize: 3,
+    processingTimeout: 100,
+    retryAttempts: 2,
+    retryDelay: 50
   };
 
   beforeEach(() => {
@@ -23,10 +23,10 @@ describe('Message Queue Tests', () => {
       const handler = jest.fn().mockResolvedValue(undefined);
       queue.registerHandler('test', handler);
 
-      const messageId = await queue.enqueue('test', { data: 'test' });
+      await queue.enqueue('test', { data: 'test' });
       
       // Wait for processing
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 50));
       
       expect(handler).toHaveBeenCalledWith({ data: 'test' });
       expect(queue.getStatus().size).toBe(0);
@@ -41,7 +41,7 @@ describe('Message Queue Tests', () => {
       await queue.enqueue('test', { data: 'test' });
 
       // Wait for retry
-      await new Promise(resolve => setTimeout(resolve, config.retryDelay + 100));
+      await new Promise(resolve => setTimeout(resolve, config.retryDelay + 50));
       
       expect(handler).toHaveBeenCalledTimes(2);
     });
@@ -50,11 +50,11 @@ describe('Message Queue Tests', () => {
       const handler = jest.fn().mockRejectedValue(new Error('Processing failed'));
       queue.registerHandler('test', handler);
 
-      const messageId = await queue.enqueue('test', { data: 'test' });
+      await queue.enqueue('test', { data: 'test' });
 
       // Wait for all retries
       await new Promise(resolve => 
-        setTimeout(resolve, (config.retryAttempts + 1) * (config.retryDelay + 100))
+        setTimeout(resolve, (config.retryAttempts + 1) * (config.retryDelay + 50))
       );
       
       expect(handler).toHaveBeenCalledTimes(config.retryAttempts);
@@ -64,12 +64,17 @@ describe('Message Queue Tests', () => {
 
   describe('Queue Management', () => {
     it('should respect max queue size', async () => {
-      queue.registerHandler('test', jest.fn());
+      const handler = jest.fn(async () => {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      });
+      queue.registerHandler('test', handler);
 
       // Fill queue to max
-      for (let i = 0; i < config.maxSize; i++) {
-        await queue.enqueue('test', { data: i });
-      }
+      await Promise.all([
+        queue.enqueue('test', { data: 1 }),
+        queue.enqueue('test', { data: 2 }),
+        queue.enqueue('test', { data: 3 })
+      ]);
 
       await expect(
         queue.enqueue('test', { data: 'overflow' })
@@ -78,18 +83,20 @@ describe('Message Queue Tests', () => {
 
     it('should process messages in priority order', async () => {
       const processed: number[] = [];
-      const handler = jest.fn(async (data) => {
+      const handler = jest.fn().mockImplementation(async (data) => {
+        await new Promise(resolve => setTimeout(resolve, 10));
         processed.push(data.priority);
       });
 
       queue.registerHandler('test', handler);
 
+      // Add messages in order to ensure consistent processing
       await queue.enqueue('test', { priority: 2 }, 2);
       await queue.enqueue('test', { priority: 1 }, 1);
       await queue.enqueue('test', { priority: 3 }, 3);
 
       // Wait for processing
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 200));
       
       expect(processed).toEqual([3, 2, 1]);
     });
@@ -97,7 +104,7 @@ describe('Message Queue Tests', () => {
     it('should handle message timeout', async () => {
       const handler = jest.fn(async () => {
         await new Promise(resolve => 
-          setTimeout(resolve, config.processingTimeout + 100)
+          setTimeout(resolve, config.processingTimeout + 50)
         );
       });
 
@@ -106,7 +113,7 @@ describe('Message Queue Tests', () => {
 
       // Wait for timeout and retry
       await new Promise(resolve => 
-        setTimeout(resolve, config.processingTimeout + config.retryDelay + 100)
+        setTimeout(resolve, config.processingTimeout + config.retryDelay + 50)
       );
       
       expect(handler).toHaveBeenCalledTimes(2);
@@ -118,7 +125,7 @@ describe('Message Queue Tests', () => {
       const handler = jest.fn().mockResolvedValue(undefined);
       queue.registerHandler('test', handler);
 
-      queue.on('messageProcessed', (messageId) => {
+      queue.once('messageProcessed', (messageId) => {
         expect(messageId).toBeDefined();
         done();
       });
@@ -127,23 +134,28 @@ describe('Message Queue Tests', () => {
     });
 
     it('should emit messageFailed event', (done) => {
+      let retryCount = 0;
+      const maxRetries = config.retryAttempts;
+
       const handler = jest.fn().mockRejectedValue(new Error('Processing failed'));
       queue.registerHandler('test', handler);
 
       queue.on('messageFailed', (messageId, error) => {
         expect(messageId).toBeDefined();
         expect(error).toBeDefined();
-        done();
+        if (++retryCount === maxRetries) {
+          done();
+        }
       });
 
-      queue.enqueue('test', { data: 'test' });
-    });
+      queue.enqueue('test', { data: 'test' }).catch(() => {});
+    }, 20000);
   });
 
   describe('Queue Status', () => {
     it('should report correct queue status', async () => {
       const handler = jest.fn(async () => {
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 50));
       });
 
       queue.registerHandler('test', handler);

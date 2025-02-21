@@ -1,0 +1,1258 @@
+2025-02-20T23:44:46.635Z [error]: Message processing failed permanently
+  {
+  "messageId": "k6jm6q",
+  "error": {},
+  "attempts": 3
+}
+2025-02-20T23:44:48.763Z [error]: Message processing failed permanently
+  {
+  "messageId": "x9hff",
+  "error": {},
+  "attempts": 3
+}
+2025-02-20T23:44:50.580Z [error]: Message processing failed permanently
+  {
+  "messageId": "tpqw3",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:14:06.750Z [error]: Message processing failed permanently
+  {
+  "messageId": "saaqq",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:14:08.862Z [error]: Message processing failed permanently
+  {
+  "messageId": "4idmje",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:16:01.579Z [error]: Failed to connect to relay
+  {
+  "relay": "wss://test.relay",
+  "error": {},
+  "attempts": 1
+}
+2025-02-21T00:16:01.594Z [error]: Failed to connect to relay
+  {
+  "relay": "wss://test.relay",
+  "error": {},
+  "attempts": 1
+}
+2025-02-21T00:16:02.084Z [error]: Message processing failed permanently
+  {
+  "messageId": "br97pr",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:16:04.197Z [error]: Message processing failed permanently
+  {
+  "messageId": "vehsn",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:16:06.009Z [error]: Message processing failed permanently
+  {
+  "messageId": "gswkba",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:18:36.925Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097116925,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:18:36.934Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097116934,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:18:37.029Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097117029,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:126:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:31:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:36:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:132:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097117029
+  }
+}
+2025-02-21T00:18:37.039Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097117038
+  }
+}
+2025-02-21T00:18:37.445Z [error]: Message processing failed permanently
+  {
+  "messageId": "6bkczr",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:18:37.937Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097117937,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:18:37.938Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097117937,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:18:37.938Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097117937,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:18:39.756Z [error]: Message processing failed permanently
+  {
+  "messageId": "sdh99b",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:18:41.557Z [error]: Message processing failed permanently
+  {
+  "messageId": "5hinpb",
+  "error": {},
+  "attempts": 3
+}
+2025-02-21T00:20:14.428Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097214428,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:20:14.439Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097214439,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:20:14.584Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097214584,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:126:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:132:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097214583
+  }
+}
+2025-02-21T00:20:14.590Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097214589
+  }
+}
+2025-02-21T00:20:14.695Z [error]: Message processing failed permanently
+  {
+  "messageId": "jqk8ch",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:20:15.357Z [error]: Message processing failed permanently
+  {
+  "messageId": "9lwv7m",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:20:15.357Z [error]: Message processing failed permanently
+  {
+  "messageId": "gggg6s",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:20:15.440Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097215440,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:20:15.440Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097215440,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:20:15.441Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097215440,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:22:34.076Z [error]: Message processing failed permanently
+  {
+  "messageId": "yipyal",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:22:34.585Z [error]: Message processing failed permanently
+  {
+  "messageId": "d7zgoc",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:22:34.586Z [error]: Message processing failed permanently
+  {
+  "messageId": "asks5k",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:23:03.985Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097383983,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:23:03.994Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097383994,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:23:03.990Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740097383,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740097383990,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740097383,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740097383,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740097383990
+  }
+}
+2025-02-21T00:23:04.001Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740097384001,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097384001,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T00:23:04.003Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097384003,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097384002
+  }
+}
+2025-02-21T00:23:04.003Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097384003
+  }
+}
+2025-02-21T00:23:04.020Z [error]: Message processing failed permanently
+  {
+  "messageId": "du9omh",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:23:04.531Z [error]: Message processing failed permanently
+  {
+  "messageId": "l32x7r",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:23:04.532Z [error]: Message processing failed permanently
+  {
+  "messageId": "vfo9t",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:23:04.996Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097384996,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:23:04.996Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097384996,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:23:04.997Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097384996,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:24:56.876Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740097496,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740097496876,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740097496,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740097496,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740097496876
+  }
+}
+2025-02-21T00:24:56.887Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740097496887,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097496887,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T00:24:56.889Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097496889,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097496889
+  }
+}
+2025-02-21T00:24:56.889Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097496889
+  }
+}
+2025-02-21T00:24:56.897Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097496897,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:24:56.906Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097496906,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:24:56.996Z [error]: Message processing failed permanently
+  {
+  "messageId": "l6uwtc",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:24:57.732Z [error]: Message processing failed permanently
+  {
+  "messageId": "xr4x3",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:24:57.732Z [error]: Message processing failed permanently
+  {
+  "messageId": "icr61l",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:24:57.908Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097497908,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:24:57.909Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097497908,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:24:57.909Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097497908,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:26:21.509Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097581509,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:26:21.518Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097581518,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:26:21.500Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740097581,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740097581500,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740097581,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740097581,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740097581500
+  }
+}
+2025-02-21T00:26:21.514Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740097581514,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097581514,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T00:26:21.516Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097581515,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097581515
+  }
+}
+2025-02-21T00:26:21.516Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097581516
+  }
+}
+2025-02-21T00:26:21.712Z [error]: Message processing failed permanently
+  {
+  "messageId": "v9ldbs",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:26:22.458Z [error]: Message processing failed permanently
+  {
+  "messageId": "zamvyb",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:26:22.461Z [error]: Message processing failed permanently
+  {
+  "messageId": "wsrgcf",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:26:22.522Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097582522,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:26:22.524Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097582522,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:26:22.524Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097582522,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:27:53.548Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097673548,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:27:53.557Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097673557,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:27:53.540Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740097673,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740097673540,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740097673,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740097673,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740097673540
+  }
+}
+2025-02-21T00:27:53.554Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740097673554,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097673554,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T00:27:53.556Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097673556,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097673556
+  }
+}
+2025-02-21T00:27:53.557Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097673557
+  }
+}
+2025-02-21T00:27:53.833Z [error]: Message processing failed permanently
+  {
+  "messageId": "giw968",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:27:54.353Z [error]: Message processing failed permanently
+  {
+  "messageId": "yjhv7b",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:27:54.355Z [error]: Message processing failed permanently
+  {
+  "messageId": "kmm5h",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:27:54.560Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097674560,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:27:54.562Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097674560,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:27:54.562Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097674560,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T00:30:04.991Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740097804,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740097804990,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740097804,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740097804,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740097804990
+  }
+}
+2025-02-21T00:30:05.006Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740097805006,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097805006,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T00:30:05.008Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740097805007,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740097805007
+  }
+}
+2025-02-21T00:30:05.008Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740097805008
+  }
+}
+2025-02-21T00:30:05.007Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097805007,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:30:05.016Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097805016,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:30:05.281Z [error]: Message processing failed permanently
+  {
+  "messageId": "onvmpa",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:30:06.006Z [error]: Message processing failed permanently
+  {
+  "messageId": "j8bsxc",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:30:06.008Z [error]: Message processing failed permanently
+  {
+  "messageId": "qmgb5h",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T00:30:06.022Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097806022,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T00:30:06.024Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097806022,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T00:30:06.024Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740097806022,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}
+2025-02-21T18:31:47.882Z [error]: Middleware chain execution failed
+  Error Code: INVALID_EVENT
+  Details: {
+  "event": {
+    "id": "test-event-hash",
+    "pubkey": "test-public-key",
+    "created_at": 1740162707,
+    "tags": [],
+    "content": "test content",
+    "sig": "test-signature"
+  }
+}
+  {
+  "error": {
+    "code": "INVALID_EVENT",
+    "message": "Event validation failed: Invalid or missing kind",
+    "timestamp": 1740162707882,
+    "details": {
+      "event": {
+        "id": "test-event-hash",
+        "pubkey": "test-public-key",
+        "created_at": 1740162707,
+        "tags": [],
+        "content": "test content",
+        "sig": "test-signature"
+      }
+    },
+    "stack": "NostrError: Event validation failed: Invalid or missing kind\n    at validateEvent (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:45:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:33:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "event": {
+      "id": "test-event-hash",
+      "pubkey": "test-public-key",
+      "created_at": 1740162707,
+      "tags": [],
+      "content": "test content",
+      "sig": "test-signature"
+    },
+    "timestamp": 1740162707882
+  }
+}
+2025-02-21T18:31:47.896Z [error]: Middleware chain execution failed
+  Error Code: INVALID_AMOUNT
+  Details: {
+  "amount": -100
+}
+  {
+  "error": {
+    "code": "INVALID_AMOUNT",
+    "message": "Payment validation failed: Invalid amount",
+    "timestamp": 1740162707896,
+    "details": {
+      "amount": -100
+    },
+    "stack": "NostrError: Payment validation failed: Invalid amount\n    at validatePayment (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:95:11)\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:103:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740162707896,
+    "metadata": {
+      "payment": {
+        "amount": -100,
+        "recipient": "test-recipient"
+      }
+    }
+  }
+}
+2025-02-21T18:31:47.898Z [error]: Middleware chain execution failed
+  Error Code: INTERNAL_ERROR
+  {
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Test error",
+    "timestamp": 1740162707898,
+    "stack": "NostrError: Test error\n    at /Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:138:15\n    at middleware (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:23:15)\n    at MiddlewareChain.next [as execute] (/Users/stevengeller/Documents/programming/nostr-commerce-framework/src/core/middleware.ts:28:13)\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/middleware.test.ts:144:26)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "context": {
+    "timestamp": 1740162707898
+  }
+}
+2025-02-21T18:31:47.899Z [error]: Middleware chain execution failed
+  {
+  "error": {},
+  "context": {
+    "timestamp": 1740162707899
+  }
+}
+2025-02-21T18:31:47.893Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740162707892,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:51:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T18:31:47.904Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740162707904,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:118:11)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T18:31:48.095Z [error]: Message processing failed permanently
+  {
+  "messageId": "rys621",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T18:31:48.808Z [error]: Message processing failed permanently
+  {
+  "messageId": "2jriih",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T18:31:48.809Z [error]: Message processing failed permanently
+  {
+  "messageId": "znzwen",
+  "error": {},
+  "attempts": 2
+}
+2025-02-21T18:31:48.907Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740162708906,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 1
+}
+2025-02-21T18:31:48.907Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740162708906,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 2
+}
+2025-02-21T18:31:48.908Z [error]: Failed to connect to relay
+  Error Code: RELAY_CONNECTION_FAILED
+  {
+  "relay": "wss://test.relay",
+  "error": {
+    "code": "RELAY_CONNECTION_FAILED",
+    "message": "Connection failed",
+    "timestamp": 1740162708906,
+    "stack": "NostrError: Connection failed\n    at Object.<anonymous> (/Users/stevengeller/Documents/programming/nostr-commerce-framework/tests/core/connection.test.ts:138:9)\n    at Promise.then.completed (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:316:40)\n    at _runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/stevengeller/Documents/programming/nostr-commerce-framework/node_modules/jest-runner/build/testWorker.js:106:12)"
+  },
+  "attempts": 3
+}

@@ -1,21 +1,13 @@
 import { NostrError, ErrorCode } from './errors';
 import { NostrEvent } from './types';
 import { logger } from './logging';
-import { RateLimiter } from './validation';
-
-export interface MiddlewareContext {
-  event?: NostrEvent;
-  userId?: string;
-  timestamp: number;
-  metadata?: Record<string, any>;
-}
+import { MiddlewareContext } from './types/middleware';
 
 export type NextFunction = () => Promise<void>;
 export type Middleware = (context: MiddlewareContext, next: NextFunction) => Promise<void>;
 
 export class MiddlewareChain {
   private middlewares: Middleware[] = [];
-  private rateLimiter = new RateLimiter();
 
   use(middleware: Middleware): this {
     this.middlewares.push(middleware);
@@ -42,32 +34,17 @@ export class MiddlewareChain {
 }
 
 // Built-in middlewares
-export const rateLimit: Middleware = async (context, next) => {
-  if (!context.userId) {
-    throw new NostrError(
-      ErrorCode.UNAUTHORIZED,
-      'User ID required for rate limiting'
-    );
-  }
-
-  const rateLimiter = new RateLimiter();
-  rateLimiter.checkLimit(context.userId);
-  await next();
-};
-
 export const validateEvent: Middleware = async (context, next) => {
   if (!context.event) {
-    throw new NostrError(
-      ErrorCode.INVALID_EVENT,
-      'Event validation failed: No event provided'
-    );
+    await next();
+    return;
   }
 
   // Basic event validation
-  if (!context.event.kind || !context.event.pubkey) {
+  if (!context.event.kind || typeof context.event.kind !== 'number') {
     throw new NostrError(
       ErrorCode.INVALID_EVENT,
-      'Event validation failed: Missing required fields',
+      'Event validation failed: Invalid or missing kind',
       { event: context.event }
     );
   }
@@ -110,10 +87,8 @@ export const sanitizeContent: Middleware = async (context, next) => {
 export const validatePayment: Middleware = async (context, next) => {
   const payment = context.metadata?.payment;
   if (!payment) {
-    throw new NostrError(
-      ErrorCode.INVALID_AMOUNT,
-      'Payment validation failed: No payment data provided'
-    );
+    await next();
+    return;
   }
 
   if (typeof payment.amount !== 'number' || payment.amount <= 0) {

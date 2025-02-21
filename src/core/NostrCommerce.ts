@@ -1,65 +1,73 @@
-import { SimplePool, getPublicKey, getEventHash, signEvent } from 'nostr-tools';
 import { EventEmitter } from 'events';
-import { NostrConfig, NostrEvent, Plugin } from './types';
+import { SimplePool, getEventHash, signEvent } from 'nostr-tools';
+import { NostrError, ErrorCode } from './errors';
+import { NostrEvent } from './types';
+import { logger } from './logging';
+import { eventValidator } from './validation';
+import { ConnectionPool, ConnectionPoolConfig } from './connection';
+import { MessageQueue, QueueConfig } from './queue';
+
+export interface NostrConfig {
+  relays: string[];
+  publicKey: string;
+  privateKey: string;
+  connectionConfig?: ConnectionPoolConfig;
+  queueConfig?: QueueConfig;
+}
 
 export class NostrCommerce extends EventEmitter {
-  private pool: SimplePool;
-  private config: NostrConfig;
-  private plugins: Map<string, Plugin>;
+  private pool: ConnectionPool;
+  private queue: MessageQueue;
+  private eventHandlers: Map<string, (event: NostrEvent) => void> = new Map();
+  private pools: Map<string, SimplePool> = new Map();
 
-  constructor(config: NostrConfig) {
+  constructor(private config: NostrConfig) {
     super();
-    this.config = config;
-    this.pool = new SimplePool();
-    this.plugins = new Map();
+    
+    this.pool = new ConnectionPool(
+      config.connectionConfig || {
+        maxConnections: 10,
+        connectionTimeout: 5000,
+        reconnectInterval: 30000,
+        maxRetries: 3
+      },
+      {
+        maxSize: 1000,
+        ttl: 3600000 // 1 hour
+      }
+    );
+
+    this.queue = new MessageQueue(
+      config.queueConfig || {
+        maxSize: 100,
+        processingTimeout: 5000,
+        retryAttempts: 3,
+        retryDelay: 1000
+      }
+    );
+
+    // Set up message handlers
+    this.queue.registerHandler('publish', this.handlePublish.bind(this));
   }
 
   /**
-   * Initialize the framework
+   * Start the framework
    */
   async start(): Promise<void> {
-    await this.connectToRelays();
-    this.initializePlugins();
-    this.emit('ready');
-  }
+    try {
+      // Connect to all relays
+      await Promise.all(
+        this.config.relays.map(async (relay) => {
+          const pool = await this.pool.getPool(relay);
+          this.pools.set(relay, pool);
+        })
+      );
 
-  /**
-   * Connect to configured relays
-   */
-  private async connectToRelays(): Promise<void> {
-    const relays = this.config.relays || [];
-    for (const relay of relays) {
-      try {
-        await this.pool.ensureRelay(relay);
-        this.emit('relay:connected', relay);
-      } catch (error) {
-        this.emit('relay:error', { relay, error });
-      }
-    }
-  }
-
-  /**
-   * Register a plugin
-   */
-  registerPlugin(name: string, plugin: Plugin): void {
-    if (this.plugins.has(name)) {
-      throw new Error(`Plugin ${name} is already registered`);
-    }
-    this.plugins.set(name, plugin);
-    plugin.onRegister?.(this);
-  }
-
-  /**
-   * Initialize all registered plugins
-   */
-  private initializePlugins(): void {
-    for (const [name, plugin] of this.plugins) {
-      try {
-        plugin.onInitialize?.();
-        this.emit('plugin:initialized', name);
-      } catch (error) {
-        this.emit('plugin:error', { name, error });
-      }
+      logger.info('NostrCommerce framework started');
+      this.emit('ready');
+    } catch (error) {
+      logger.error('Failed to start framework', { error });
+      throw error;
     }
   }
 
@@ -71,37 +79,86 @@ export class NostrCommerce extends EventEmitter {
       ...event,
       created_at: Math.floor(Date.now() / 1000),
       pubkey: this.config.publicKey,
+      tags: event.tags || [],
+      content: event.content || ''
     } as NostrEvent;
 
+    // Validate event
+    eventValidator.validate(finalEvent);
+
+    // Sign event
     finalEvent.id = getEventHash(finalEvent);
     finalEvent.sig = await signEvent(finalEvent, this.config.privateKey);
 
-    const pub = this.pool.publish(this.config.relays, finalEvent);
-    await Promise.race([
-      pub,
-      new Promise((_, reject) => setTimeout(() => reject(new Error('Publish timeout')), 5000))
-    ]);
-
-    return finalEvent.id;
+    // Queue for publishing
+    return await this.queue.enqueue('publish', finalEvent);
   }
 
   /**
-   * Subscribe to events matching specific filters
+   * Subscribe to events
    */
-  subscribe(filters: any[], onEvent: (event: NostrEvent) => void): () => void {
-    const sub = this.pool.sub(this.config.relays, filters);
-    sub.on('event', onEvent);
-    return () => sub.unsub();
+  subscribe(filters: any[], callback: (event: NostrEvent) => void): () => void {
+    const subscriptionId = Math.random().toString(36).substring(7);
+    this.eventHandlers.set(subscriptionId, callback);
+
+    const unsubs = this.config.relays.map(relay => {
+      const pool = this.pools.get(relay);
+      if (!pool) {
+        throw new NostrError(
+          ErrorCode.RELAY_CONNECTION_FAILED,
+          `Not connected to relay: ${relay}`
+        );
+      }
+
+      const sub = pool.sub([relay], filters);
+      sub.on('event', (event: NostrEvent) => {
+        this.emit('event', event);
+        callback(event);
+      });
+      return () => sub.unsub();
+    });
+
+    return () => {
+      this.eventHandlers.delete(subscriptionId);
+      unsubs.forEach(unsub => unsub());
+    };
   }
 
   /**
-   * Clean up resources
+   * Handle publishing events
+   */
+  private async handlePublish(event: NostrEvent): Promise<void> {
+    try {
+      const promises = this.config.relays.map(relay => {
+        const pool = this.pools.get(relay);
+        if (!pool) {
+          throw new NostrError(
+            ErrorCode.RELAY_CONNECTION_FAILED,
+            `Not connected to relay: ${relay}`
+          );
+        }
+        return pool.publish([relay], event);
+      });
+
+      await Promise.all(promises);
+      this.emit('publish:success', { eventId: event.id });
+      logger.debug('Event published successfully', { eventId: event.id });
+    } catch (error) {
+      this.emit('publish:error', { error, eventId: event.id });
+      logger.error('Failed to publish event', { error, eventId: event.id });
+      throw error;
+    }
+  }
+
+  /**
+   * Stop the framework
    */
   async stop(): Promise<void> {
-    this.pool.close(this.config.relays);
-    for (const plugin of this.plugins.values()) {
-      await plugin.onStop?.();
-    }
+    await this.pool.close();
+    this.queue.clear();
+    this.eventHandlers.clear();
+    this.pools.clear();
     this.emit('stopped');
+    logger.info('NostrCommerce framework stopped');
   }
 }

@@ -1,63 +1,151 @@
-# Nostr Commerce Framework API Documentation
+# API Reference
 
 ## Core Framework
 
 ### NostrCommerce
 
-The main framework class that handles connections to Nostr relays and provides core functionality.
+The main framework class that manages Nostr connections, commerce features, and interactions.
 
 ```typescript
+import { NostrCommerce } from 'nostr-commerce-framework';
+
 const framework = new NostrCommerce({
   relays: ['wss://relay.damus.io'],
   publicKey: 'your-public-key',
-  privateKey: 'your-private-key',
+  privateKey: 'your-private-key'
+});
+```
+
+#### Configuration Options
+
+| Option | Type | Description |
+|--------|------|-------------|
+| relays | string[] | List of Nostr relay URLs |
+| publicKey | string | Your Nostr public key |
+| privateKey | string | Your Nostr private key |
+| maxConnections? | number | Maximum relay connections (default: 10) |
+| connectionTimeout? | number | Connection timeout in ms (default: 5000) |
+| rateLimitWindow? | number | Rate limit window in ms (default: 60000) |
+| rateLimitMax? | number | Max requests per window (default: 100) |
+
+#### Methods
+
+##### `start(): Promise<void>`
+Initialize the framework and connect to relays.
+
+##### `stop(): Promise<void>`
+Clean up resources and close connections.
+
+##### `publishEvent(event: Partial<NostrEvent>): Promise<string>`
+Publish an event to the Nostr network.
+
+##### `subscribe(filters: any[], callback: (event: NostrEvent) => void): () => void`
+Subscribe to events matching specific filters.
+
+### Interaction Module
+
+Handles messaging and user interactions.
+
+```typescript
+const interaction = framework.interaction;
+
+// Send a message
+const messageId = await interaction.sendMessage(
+  'Hello!',
+  'recipient-public-key'
+);
+
+// Subscribe to messages
+const unsubscribe = interaction.subscribe((event) => {
+  console.log('New message:', event);
 });
 ```
 
 #### Methods
 
-- `start()`: Initialize the framework and connect to relays
-- `stop()`: Clean up resources and close connections
-- `publishEvent(event: Partial<NostrEvent>)`: Publish an event to the Nostr network
-- `subscribe(filters: any[], callback: (event: NostrEvent) => void)`: Subscribe to events
-- `registerPlugin(name: string, plugin: Plugin)`: Register a new plugin
+##### `sendMessage(content: string, recipient: string): Promise<string>`
+Send a direct message to a recipient.
 
-## Modules
+##### `subscribe(callback: (event: NostrEvent) => void): () => void`
+Subscribe to incoming messages.
 
-### InteractionManager
+### Commerce Module
 
-Handles messaging and user interactions.
+Handles payments and commerce features.
 
 ```typescript
-const interaction = new InteractionManager(framework);
+const commerce = framework.commerce;
+
+// Create an invoice
+const invoice = await commerce.createInvoice({
+  amount: 1000,
+  description: 'Test payment'
+});
+
+// Process a tip
+await commerce.processTip({
+  recipient: 'recipient-key',
+  amount: 500
+});
+
+// Listen for payments
+commerce.on('paymentReceived', (payment) => {
+  console.log('Payment received:', payment);
+});
 ```
 
 #### Methods
 
-- `sendMessage(content: string, recipient: string)`: Send a direct message
-- `subscribe(callback: (event: NostrEvent) => void)`: Subscribe to incoming messages
-- `cleanup()`: Clean up subscriptions
-
-### CommerceManager
-
-Handles payments and commerce-related functionality.
+##### `createInvoice(options: InvoiceOptions): Promise<string>`
+Create a payment invoice.
 
 ```typescript
-const commerce = new CommerceManager(framework);
+interface InvoiceOptions {
+  amount: number;
+  description: string;
+  expiry?: number;  // Expiry time in seconds
+  metadata?: Record<string, any>;
+}
 ```
 
-#### Methods
-
-- `createInvoice(amount: number, description: string)`: Create a payment invoice
-- `processTip(recipient: string, amount: number)`: Send a tip to a recipient
-- `verifyPayment(invoiceId: string)`: Check if a payment has been received
-- `cleanup()`: Clean up resources
-
-## Events
-
-The framework emits various events that you can listen to:
+##### `processTip(options: TipOptions): Promise<string>`
+Send a tip to a recipient.
 
 ```typescript
+interface TipOptions {
+  recipient: string;
+  amount: number;
+  message?: string;
+}
+```
+
+##### `verifyPayment(invoiceId: string): Promise<boolean>`
+Check if a payment has been received.
+
+### Error Handling
+
+The framework uses custom error classes for detailed error information:
+
+```typescript
+try {
+  await framework.start();
+} catch (error) {
+  if (error instanceof NostrError) {
+    console.error(
+      'Error code:', error.code,
+      'Message:', error.message,
+      'Details:', error.details
+    );
+  }
+}
+```
+
+### Events
+
+The framework emits various events you can listen to:
+
+```typescript
+// Framework events
 framework.on('ready', () => {
   console.log('Framework is ready');
 });
@@ -66,14 +154,19 @@ framework.on('relay:connected', (relay) => {
   console.log('Connected to relay:', relay);
 });
 
-framework.on('payment:received', ({ invoiceId, amount }) => {
-  console.log('Payment received:', { invoiceId, amount });
+// Commerce events
+framework.commerce.on('paymentReceived', (payment) => {
+  console.log('Payment received:', payment);
+});
+
+framework.commerce.on('invoiceExpired', (invoiceId) => {
+  console.log('Invoice expired:', invoiceId);
 });
 ```
 
-## Plugin System
+### Plugin System
 
-You can extend the framework's functionality by creating plugins:
+Extend the framework's functionality with plugins:
 
 ```typescript
 interface Plugin {
@@ -86,45 +179,55 @@ const myPlugin: Plugin = {
   onRegister(framework) {
     // Setup plugin
   },
-  onInitialize() {
+  async onInitialize() {
     // Initialize plugin
   },
-  onStop() {
+  async onStop() {
     // Cleanup
-  },
+  }
 };
 
 framework.registerPlugin('my-plugin', myPlugin);
 ```
 
-## Error Handling
-
-The framework uses standard error handling patterns:
-
-```typescript
-try {
-  await framework.start();
-} catch (error) {
-  console.error('Failed to start framework:', error);
-}
-```
-
 ## Best Practices
 
-1. Always call `cleanup()` on modules when you're done using them
-2. Handle errors appropriately using try/catch blocks
-3. Use TypeScript for better type safety and development experience
-4. Follow the event-driven pattern for real-time updates
-5. Implement proper error handling and logging
+1. **Error Handling**
+   ```typescript
+   try {
+     await framework.commerce.createInvoice({
+       amount: 1000,
+       description: 'Test'
+     });
+   } catch (error) {
+     if (error.code === ErrorCode.INVALID_AMOUNT) {
+       // Handle invalid amount
+     }
+   }
+   ```
+
+2. **Resource Cleanup**
+   ```typescript
+   const unsubscribe = framework.subscribe(filters, callback);
+   // Later...
+   unsubscribe();
+   ```
+
+3. **Security**
+   - Store private keys securely
+   - Validate all input data
+   - Use rate limiting for public endpoints
+
+4. **Performance**
+   - Reuse connections when possible
+   - Clean up subscriptions when not needed
+   - Use appropriate cache settings
 
 ## Examples
 
-See the `examples/` directory for complete usage examples:
+See the [examples directory](https://github.com/stevengeller/nostr-commerce-framework/tree/main/examples) for complete usage examples:
 
-- `basic-usage.ts`: Basic framework usage
-- `plugin-example.ts`: Creating and using plugins
-- `commerce-example.ts`: Implementing commerce features
-
-## Contributing
-
-Please see CONTRIBUTING.md for details on how to contribute to this project.
+- Basic usage
+- Commerce integration
+- Plugin development
+- Custom event handling

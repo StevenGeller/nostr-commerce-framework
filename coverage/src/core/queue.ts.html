@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/core/NostrCommerce.ts</title>
+    <title>Code coverage report for src/core/queue.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/core</a> NostrCommerce.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/core</a> queue.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.54% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/62</span>
+                <span class='fraction'>52/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/13</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/60</span>
+                <span class='fraction'>51/54</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -226,33 +226,81 @@
 <a name='L161'></a><a href='#L161'>161</a>
 <a name='L162'></a><a href='#L162'>162</a>
 <a name='L163'></a><a href='#L163'>163</a>
-<a name='L164'></a><a href='#L164'>164</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,95 +308,99 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -356,25 +408,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -382,175 +420,194 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EventEmitter } from 'events';
-import { SimplePool, getEventHash, signEvent } from 'nostr-tools';
 import { NostrError, ErrorCode } from './errors';
-import { NostrEvent } from './types';
 import { logger } from './logging';
-import { eventValidator } from './validation';
-import { ConnectionPool, ConnectionPoolConfig } from './connection';
-import { MessageQueue, QueueConfig } from './queue';
 &nbsp;
-export interface NostrConfig {
-  relays: string[];
-  publicKey: string;
-  privateKey: string;
-  connectionConfig?: ConnectionPoolConfig;
-  queueConfig?: QueueConfig;
+export interface QueueConfig {
+  maxSize: number;
+  processingTimeout: number;
+  retryAttempts: number;
+  retryDelay: number;
 }
 &nbsp;
-export class NostrCommerce extends EventEmitter {
-  private pool: ConnectionPool;
-  private queue: MessageQueue;
-  private eventHandlers: Map&lt;string, (event: NostrEvent) =&gt; void&gt; = new Map();
-  private pools: Map&lt;string, SimplePool&gt; = new Map();
+export interface QueuedMessage {
+  id: string;
+  data: any;
+  priority: number;
+  timestamp: number;
+  attempts: number;
+}
 &nbsp;
-  constructor(private config: NostrConfig) {
+export class MessageQueue extends EventEmitter {
+  private queue: QueuedMessage[] = [];
+  private processing: boolean = false;
+  private handlers: Map&lt;string, (data: any) =&gt; Promise&lt;void&gt;&gt; = new Map();
+&nbsp;
+  constructor(private config: QueueConfig) {
     super();
-    
-    this.pool = new ConnectionPool(
-      config.connectionConfig || {
-        maxConnections: 10,
-        connectionTimeout: 5000,
-        reconnectInterval: 30000,
-        maxRetries: 3
-      },
-      {
-        maxSize: 1000,
-        ttl: 3600000 // 1 hour
-      }
-    );
-&nbsp;
-    this.queue = new MessageQueue(
-      config.queueConfig || {
-        maxSize: 100,
-        processingTimeout: 5000,
-        retryAttempts: 3,
-        retryDelay: 1000
-      }
-    );
-&nbsp;
-    // Set up message handlers
-    this.queue.registerHandler('publish', this.handlePublish.bind(this));
   }
 &nbsp;
   /**
-   * Start the framework
+   * Register a message handler for a specific type
    */
-<span class="fstat-no" title="function not covered" >  async </span>start(): Promise&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      // Connect to all relays
-<span class="cstat-no" title="statement not covered" >      await Promise.all(</span>
-        this.config.relays.map(<span class="fstat-no" title="function not covered" >async </span>(relay) =&gt; {
-          const pool = <span class="cstat-no" title="statement not covered" >await this.pool.getPool(relay);</span>
-<span class="cstat-no" title="statement not covered" >          this.pools.set(relay, pool);</span>
-        })
-      );
+  registerHandler(type: string, handler: (data: any) =&gt; Promise&lt;void&gt;): void {
+    this.handlers.set(type, handler);
+  }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      logger.info('NostrCommerce framework started');</span>
-<span class="cstat-no" title="statement not covered" >      this.emit('ready');</span>
-    } catch (error) {
-<span class="cstat-no" title="statement not covered" >      logger.error('Failed to start framework', { error });</span>
-<span class="cstat-no" title="statement not covered" >      throw error;</span>
+  /**
+   * Add a message to the queue
+   */
+  async enqueue(type: string, data: any, priority: number = 0): Promise&lt;string&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.handlers.has(type)) {
+<span class="cstat-no" title="statement not covered" >      throw new NostrError(</span>
+        ErrorCode.INVALID_MESSAGE_TYPE,
+        'No handler registered for message type',
+        { type }
+      );
+    }
+&nbsp;
+    if (this.queue.length &gt;= this.config.maxSize) {
+      throw new NostrError(
+        ErrorCode.QUEUE_FULL,
+        'Message queue is full',
+        { queueSize: this.queue.length }
+      );
+    }
+&nbsp;
+    const message: QueuedMessage = {
+      id: Math.random().toString(36).substring(7),
+      data: { type, payload: data },
+      priority,
+      timestamp: Date.now(),
+      attempts: 0
+    };
+&nbsp;
+    this.queue.push(message);
+    this.sortQueue();
+&nbsp;
+    logger.debug('Message enqueued', { 
+      messageId: message.id,
+      type,
+      priority
+    });
+&nbsp;
+    // Start processing if not already running
+    if (!this.processing) {
+      this.processQueue();
+    }
+&nbsp;
+    return message.id;
+  }
+&nbsp;
+  /**
+   * Sort queue by priority (highest first)
+   */
+  private sortQueue(): void {
+    this.queue.sort((a, b) =&gt; b.priority - a.priority);
+  }
+&nbsp;
+  /**
+   * Process messages in the queue
+   */
+  private async processQueue(): Promise&lt;void&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.processing || this.queue.length === 0) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+    this.processing = true;
+&nbsp;
+    try {
+      while (this.queue.length &gt; 0) {
+        const message = this.queue[0];
+        const handler = this.handlers.get(message.data.type);
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!handler) {
+<span class="cstat-no" title="statement not covered" >          this.queue.shift();</span>
+<span class="cstat-no" title="statement not covered" >          continue;</span>
+        }
+&nbsp;
+        try {
+          await Promise.race([
+            handler(message.data.payload),
+            new Promise((_, reject) =&gt; {
+              setTimeout(() =&gt; {
+                reject(new Error('Processing timeout'));
+              }, this.config.processingTimeout);
+            })
+          ]);
+&nbsp;
+          // Message processed successfully
+          this.queue.shift();
+          this.emit('messageProcessed', message.id);
+&nbsp;
+          logger.debug('Message processed successfully', { 
+            messageId: message.id
+          });
+        } catch (error) {
+          message.attempts++;
+&nbsp;
+          if (message.attempts &gt;= this.config.retryAttempts) {
+            // Max retries reached, remove message
+            this.queue.shift();
+            this.emit('messageFailed', message.id, error);
+            
+            logger.error('Message processing failed permanently', {
+              messageId: message.id,
+              error,
+              attempts: message.attempts
+            });
+          } else {
+            // Move to end of queue for retry
+            this.queue.shift();
+            this.queue.push(message);
+            this.sortQueue();
+            
+            logger.warn('Message processing failed, will retry', {
+              messageId: message.id,
+              error,
+              attempts: message.attempts
+            });
+&nbsp;
+            // Wait before next attempt
+            await new Promise(resolve =&gt; 
+              setTimeout(resolve, this.config.retryDelay)
+            );
+          }
+        }
+      }
+    } finally {
+      this.processing = false;
     }
   }
 &nbsp;
   /**
-   * Publish an event to the Nostr network
+   * Get current queue status
    */
-<span class="fstat-no" title="function not covered" >  async </span>publishEvent(event: Partial&lt;NostrEvent&gt;): Promise&lt;string&gt; {
-    const finalEvent = <span class="cstat-no" title="statement not covered" >{</span>
-      ...event,
-      created_at: Math.floor(Date.now() / 1000),
-      pubkey: this.config.publicKey,
-      tags: event.tags || [],
-      content: event.content || ''
-    } as NostrEvent;
-&nbsp;
-    // Validate event
-<span class="cstat-no" title="statement not covered" >    eventValidator.validate(finalEvent);</span>
-&nbsp;
-    // Sign event
-<span class="cstat-no" title="statement not covered" >    finalEvent.id = getEventHash(finalEvent);</span>
-<span class="cstat-no" title="statement not covered" >    finalEvent.sig = await signEvent(finalEvent, this.config.privateKey);</span>
-&nbsp;
-    // Queue for publishing
-<span class="cstat-no" title="statement not covered" >    return await this.queue.enqueue('publish', finalEvent);</span>
-  }
-&nbsp;
-  /**
-   * Subscribe to events
-   */
-  subscribe(filters: any[], callback: (event: NostrEvent) =&gt; void): () =&gt; void {
-    const subscriptionId = Math.random().toString(36).substring(7);
-    this.eventHandlers.set(subscriptionId, callback);
-&nbsp;
-    const unsubs = this.config.relays.map(relay =&gt; {
-      const pool = this.pools.get(relay);
-      if (!pool) {
-        throw new NostrError(
-          ErrorCode.RELAY_CONNECTION_FAILED,
-          `Not connected to relay: ${relay}`
-        );
-      }
-&nbsp;
-      const sub = <span class="cstat-no" title="statement not covered" >pool.sub([relay], filters);</span>
-<span class="cstat-no" title="statement not covered" >      sub.on('event', <span class="fstat-no" title="function not covered" >(e</span>vent: NostrEvent) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.emit('event', event);</span>
-<span class="cstat-no" title="statement not covered" >        callback(event);</span>
-      });
-<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >sub.unsub();</span></span>
-    });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.eventHandlers.delete(subscriptionId);</span>
-<span class="cstat-no" title="statement not covered" >      unsubs.forEach(<span class="fstat-no" title="function not covered" >unsub </span>=&gt; <span class="cstat-no" title="statement not covered" >unsub())</span>;</span>
+  getStatus(): {
+    size: number;
+    processing: boolean;
+    oldestMessage?: number;
+  } {
+    return {
+      size: this.queue.length,
+      processing: this.processing,
+      oldestMessage: this.queue[0]?.timestamp
     };
   }
 &nbsp;
   /**
-   * Handle publishing events
+   * Clear the queue
    */
-  private <span class="fstat-no" title="function not covered" >async </span>handlePublish(event: NostrEvent): Promise&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const promises = <span class="cstat-no" title="statement not covered" >this.config.relays.map(<span class="fstat-no" title="function not covered" >relay </span>=&gt; {</span>
-        const pool = <span class="cstat-no" title="statement not covered" >this.pools.get(relay);</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!pool) {</span>
-<span class="cstat-no" title="statement not covered" >          throw new NostrError(</span>
-            ErrorCode.RELAY_CONNECTION_FAILED,
-            `Not connected to relay: ${relay}`
-          );
-        }
-<span class="cstat-no" title="statement not covered" >        return pool.publish([relay], event);</span>
-      });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      await Promise.all(promises);</span>
-<span class="cstat-no" title="statement not covered" >      this.emit('publish:success', { eventId: event.id });</span>
-<span class="cstat-no" title="statement not covered" >      logger.debug('Event published successfully', { eventId: event.id });</span>
-    } catch (error) {
-<span class="cstat-no" title="statement not covered" >      this.emit('publish:error', { error, eventId: event.id });</span>
-<span class="cstat-no" title="statement not covered" >      logger.error('Failed to publish event', { error, eventId: event.id });</span>
-<span class="cstat-no" title="statement not covered" >      throw error;</span>
-    }
-  }
-&nbsp;
-  /**
-   * Stop the framework
-   */
-  async stop(): Promise&lt;void&gt; {
-    await this.pool.close();
-    this.queue.clear();
-    this.eventHandlers.clear();
-    this.pools.clear();
-    this.emit('stopped');
-    logger.info('NostrCommerce framework stopped');
+  clear(): void {
+    this.queue = [];
+    this.processing = false;
+    logger.info('Message queue cleared');
   }
 }</pre></td></tr></table></pre>
 
@@ -559,7 +616,7 @@ export class NostrCommerce extends EventEmitter {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-21T18:32:09.335Z
+                at 2025-02-21T18:32:09.357Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

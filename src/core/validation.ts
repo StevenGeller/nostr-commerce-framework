@@ -1,5 +1,6 @@
-import { NostrEvent } from './types';
 import { NostrError, ErrorCode } from './errors';
+import { NostrEvent } from './types';
+import { logger } from './logging';
 
 export interface ValidationRule<T> {
   validate: (value: T) => boolean;
@@ -28,10 +29,13 @@ export class Validator<T> {
 }
 
 // Event validation rules
-const eventValidator = new Validator<Partial<NostrEvent>>()
+export const eventValidator = new Validator<Partial<NostrEvent>>();
+
+// Add basic validation rules
+eventValidator
   .addRule({
-    validate: (event) => !!event.kind,
-    message: 'Event kind is required'
+    validate: (event) => typeof event.kind === 'number',
+    message: 'Event kind must be a number'
   })
   .addRule({
     validate: (event) => Array.isArray(event.tags),
@@ -45,8 +49,10 @@ const eventValidator = new Validator<Partial<NostrEvent>>()
     message: 'Event content must be a string of maximum 64000 characters'
   });
 
-// Content sanitization and validation
-export function sanitizeContent(content: string): string {
+// Content sanitization
+export function sanitizeContent(content: string | undefined): string {
+  if (!content) return '';
+  
   // Remove any potential XSS vectors
   content = content
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
@@ -123,6 +129,12 @@ export class RateLimiter {
     // Add new request
     requests.push(now);
     this.requests.set(key, requests);
+
+    logger.debug('Rate limit check passed', {
+      key,
+      requestCount: requests.length,
+      maxRequests: this.maxRequests
+    });
   }
 
   // Clean up old entries periodically
@@ -138,7 +150,7 @@ export class RateLimiter {
         this.requests.set(key, validRequests);
       }
     }
+
+    logger.debug('Rate limiter cleanup completed');
   }
 }
-
-export { eventValidator };

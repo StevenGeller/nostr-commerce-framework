@@ -1,7 +1,7 @@
 import { SimplePool } from 'nostr-tools';
 import { NostrError, ErrorCode } from './errors';
 import { logger } from './logging';
-import LRU from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 
 export interface ConnectionPoolConfig {
   maxConnections: number;
@@ -19,13 +19,13 @@ export class ConnectionPool {
   private pools: Map<string, SimplePool> = new Map();
   private connectionStatus: Map<string, boolean> = new Map();
   private retryAttempts: Map<string, number> = new Map();
-  private cache: LRU<string, any>;
+  private cache: LRUCache<string, any>;
 
   constructor(
     private config: ConnectionPoolConfig,
     cacheConfig: CacheConfig
   ) {
-    this.cache = new LRU({
+    this.cache = new LRUCache({
       max: cacheConfig.maxSize,
       ttl: cacheConfig.ttl,
       updateAgeOnGet: true,

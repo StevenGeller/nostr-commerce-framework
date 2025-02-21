@@ -27,14 +27,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nostr-tools": "^1.17.0",
-    "winston": "^3.11.0",
-    "lru-cache": "^10.0.1",
     "crypto": "^1.0.1",
-    "events": "^3.3.0"
+    "events": "^3.3.0",
+    "lru-cache": "^10.0.1",
+    "nostr-tools": "^1.17.0",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
+    "@types/lru-cache": "^7.10.9",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",

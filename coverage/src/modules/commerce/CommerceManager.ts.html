@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.03% </span>
+                <span class="strong">22.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/27</span>
+                <span class='fraction'>6/27</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.46% </span>
+                <span class="strong">23.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/26</span>
+                <span class='fraction'>6/26</span>
             </div>
         
             
@@ -177,18 +177,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,7 +184,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,7 +209,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -273,8 +273,8 @@ export class CommerceManager implements CommerceModule {
   /**
    * Create a new invoice for payment
    */
-  async createInvoice(amount: number, description: string): Promise&lt;string&gt; {
-    const event: Partial&lt;NostrEvent&gt; = {
+<span class="fstat-no" title="function not covered" >  async </span>createInvoice(amount: number, description: string): Promise&lt;string&gt; {
+    const event: Partial&lt;NostrEvent&gt; = <span class="cstat-no" title="statement not covered" >{</span>
       kind: 9734, // Lightning Invoice
       content: JSON.stringify({
         amount,
@@ -284,7 +284,7 @@ export class CommerceManager implements CommerceModule {
       tags: [['amount', amount.toString()]],
     };
 &nbsp;
-    const invoiceId = await this.framework.publishEvent(event);
+    const invoiceId = <span class="cstat-no" title="statement not covered" >await this.framework.publishEvent(event);</span>
 <span class="cstat-no" title="statement not covered" >    this.invoices.set(invoiceId, { amount, paid: false });</span>
 <span class="cstat-no" title="statement not covered" >    return invoiceId;</span>
   }
@@ -292,8 +292,8 @@ export class CommerceManager implements CommerceModule {
   /**
    * Process a tip to a recipient
    */
-  async processTip(recipient: string, amount: number): Promise&lt;string&gt; {
-    const event: Partial&lt;NostrEvent&gt; = {
+<span class="fstat-no" title="function not covered" >  async </span>processTip(recipient: string, amount: number): Promise&lt;string&gt; {
+    const event: Partial&lt;NostrEvent&gt; = <span class="cstat-no" title="statement not covered" >{</span>
       kind: 9735, // Zap
       content: JSON.stringify({
         amount,
@@ -306,7 +306,7 @@ export class CommerceManager implements CommerceModule {
       ],
     };
 &nbsp;
-    return await this.framework.publishEvent(event);
+<span class="cstat-no" title="statement not covered" >    return await this.framework.publishEvent(event);</span>
   }
 &nbsp;
   /**
@@ -361,7 +361,7 @@ export class CommerceManager implements CommerceModule {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-20T22:33:50.500Z
+                at 2025-02-21T18:32:09.357Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

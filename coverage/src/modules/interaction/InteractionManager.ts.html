@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>3/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>3/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -134,33 +134,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,34 +188,34 @@ export class InteractionManager implements InteractionModule {
   /**
    * Send a direct message to a recipient
    */
-  async sendMessage(content: string, recipient: string): Promise&lt;string&gt; {
-    const event: Partial&lt;NostrEvent&gt; = {
+<span class="fstat-no" title="function not covered" >  async </span>sendMessage(content: string, recipient: string): Promise&lt;string&gt; {
+    const event: Partial&lt;NostrEvent&gt; = <span class="cstat-no" title="statement not covered" >{</span>
       kind: 4, // Direct message
       content: content,
       tags: [['p', recipient]],
     };
 &nbsp;
-    return await this.framework.publishEvent(event);
+<span class="cstat-no" title="statement not covered" >    return await this.framework.publishEvent(event);</span>
   }
 &nbsp;
   /**
    * Subscribe to incoming messages and events
    */
-  subscribe(callback: (event: NostrEvent) =&gt; void): () =&gt; void {
-    const filters = [
+<span class="fstat-no" title="function not covered" >  subscribe(</span>callback: (event: NostrEvent) =&gt; void): () =&gt; void {
+    const filters = <span class="cstat-no" title="statement not covered" >[</span>
       {
         kinds: [4], // Direct messages
         since: Math.floor(Date.now() / 1000),
       },
     ];
 &nbsp;
-    const unsubscribe = this.framework.subscribe(filters, callback);
-    const subscriptionId = Math.random().toString(36).substring(7);
-    this.subscriptions.set(subscriptionId, unsubscribe);
+    const unsubscribe = <span class="cstat-no" title="statement not covered" >this.framework.subscribe(filters, callback);</span>
+    const subscriptionId = <span class="cstat-no" title="statement not covered" >Math.random().toString(36).substring(7);</span>
+<span class="cstat-no" title="statement not covered" >    this.subscriptions.set(subscriptionId, unsubscribe);</span>
 &nbsp;
-    return () =&gt; {
-      unsubscribe();
-      this.subscriptions.delete(subscriptionId);
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      unsubscribe();</span>
+<span class="cstat-no" title="statement not covered" >      this.subscriptions.delete(subscriptionId);</span>
     };
   }
 &nbsp;
@@ -235,7 +235,7 @@ export class InteractionManager implements InteractionModule {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-20T22:33:50.500Z
+                at 2025-02-21T18:32:09.357Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

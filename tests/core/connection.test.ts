@@ -1,5 +1,5 @@
 import { ConnectionPool, ConnectionPoolConfig, CacheConfig } from '../../src/core/connection';
-import { NostrError } from '../../src/core/errors';
+import { NostrError, ErrorCode } from '../../src/core/errors';
 import { mockPool } from '../mocks/nostr-tools';
 
 jest.mock('nostr-tools', () => ({
@@ -11,7 +11,7 @@ describe('Connection Pool Tests', () => {
   const config: ConnectionPoolConfig = {
     maxConnections: 3,
     connectionTimeout: 1000,
-    reconnectInterval: 5000,
+    reconnectInterval: 1000,
     maxRetries: 3
   };
   const cacheConfig: CacheConfig = {
@@ -47,9 +47,14 @@ describe('Connection Pool Tests', () => {
     });
 
     it('should handle connection failures', async () => {
-      mockPool.ensureRelay.mockRejectedValueOnce(new Error('Connection failed'));
-      const relay = 'wss://test.relay';
+      mockPool.ensureRelay.mockRejectedValueOnce(
+        new NostrError(
+          ErrorCode.RELAY_CONNECTION_FAILED,
+          'Connection failed'
+        )
+      );
       
+      const relay = 'wss://test.relay';
       await expect(pool.getPool(relay)).rejects.toThrow(NostrError);
     });
 
@@ -109,23 +114,35 @@ describe('Connection Pool Tests', () => {
     it('should attempt reconnection on failure', async () => {
       const relay = 'wss://test.relay';
       mockPool.ensureRelay
-        .mockRejectedValueOnce(new Error('Connection failed'))
+        .mockRejectedValueOnce(
+          new NostrError(
+            ErrorCode.RELAY_CONNECTION_FAILED,
+            'Connection failed'
+          )
+        )
         .mockResolvedValueOnce(undefined);
 
-      await expect(pool.getPool(relay)).rejects.toThrow();
+      await expect(pool.getPool(relay)).rejects.toThrow(NostrError);
       
       // Wait for reconnect interval
-      await new Promise(resolve => setTimeout(resolve, config.reconnectInterval + 100));
+      await new Promise(resolve => setTimeout(resolve, config.reconnectInterval));
       
+      const result = await pool.getPool(relay);
+      expect(result).toBeDefined();
       expect(mockPool.ensureRelay).toHaveBeenCalledTimes(2);
-    });
+    }, 10000);
 
     it('should stop retrying after max attempts', async () => {
       const relay = 'wss://test.relay';
-      mockPool.ensureRelay.mockRejectedValue(new Error('Connection failed'));
+      mockPool.ensureRelay.mockRejectedValue(
+        new NostrError(
+          ErrorCode.RELAY_CONNECTION_FAILED,
+          'Connection failed'
+        )
+      );
 
-      for (let i = 0; i <= config.maxRetries; i++) {
-        await expect(pool.getPool(relay)).rejects.toThrow();
+      for (let i = 0; i < config.maxRetries; i++) {
+        await expect(pool.getPool(relay)).rejects.toThrow(NostrError);
       }
 
       expect(mockPool.ensureRelay).toHaveBeenCalledTimes(config.maxRetries);

@@ -1,5 +1,8 @@
 import { NostrEvent } from '../../src/core/types';
 
+const mockPrivateKey = '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
+const mockPublicKey = 'test-public-key';
+
 export const mockPool = {
   publish: jest.fn().mockResolvedValue(true),
   sub: jest.fn().mockReturnValue({
@@ -11,8 +14,8 @@ export const mockPool = {
 };
 
 export const mockEvent: NostrEvent = {
-  id: 'test-id',
-  pubkey: 'test-pubkey',
+  id: 'test-event-hash',
+  pubkey: mockPublicKey,
   created_at: Math.floor(Date.now() / 1000),
   kind: 1,
   tags: [],
@@ -20,33 +23,13 @@ export const mockEvent: NostrEvent = {
   sig: 'test-signature'
 };
 
-export const mockConfig = {
-  relays: ['wss://test.relay'],
-  publicKey: 'test-public-key',
-  privateKey: 'test-private-key'
+// Mock nostr-tools functions
+const nostrTools = {
+  SimplePool: jest.fn().mockImplementation(() => mockPool),
+  getPublicKey: jest.fn().mockReturnValue(mockPublicKey),
+  getEventHash: jest.fn().mockImplementation(() => 'test-event-hash'),
+  signEvent: jest.fn().mockImplementation(() => Promise.resolve('test-signature')),
+  validateEvent: jest.fn().mockReturnValue(true)
 };
 
-jest.mock('nostr-tools', () => ({
-  SimplePool: jest.fn().mockImplementation(() => mockPool),
-  getPublicKey: jest.fn().mockReturnValue('test-public-key'),
-  getEventHash: jest.fn().mockReturnValue('test-event-hash'),
-  signEvent: jest.fn().mockResolvedValue('test-signature')
-}));
-
-// Mock crypto functions
-jest.mock('crypto', () => ({
-  randomBytes: jest.fn().mockReturnValue(Buffer.from('mock-random-bytes')),
-  createCipheriv: jest.fn().mockReturnValue({
-    update: jest.fn().mockReturnValue(Buffer.from('mock-encrypted')),
-    final: jest.fn().mockReturnValue(Buffer.from('')),
-    getAuthTag: jest.fn().mockReturnValue(Buffer.from('mock-auth-tag'))
-  }),
-  createDecipheriv: jest.fn().mockReturnValue({
-    update: jest.fn().mockReturnValue(Buffer.from('mock-decrypted')),
-    final: jest.fn().mockReturnValue(Buffer.from('')),
-    setAuthTag: jest.fn()
-  }),
-  scrypt: jest.fn((password, salt, keylen, options, callback) => {
-    callback(null, Buffer.from('mock-derived-key'));
-  })
-}));
+jest.mock('nostr-tools', () => nostrTools);

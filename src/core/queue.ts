@@ -62,7 +62,7 @@ export class MessageQueue extends EventEmitter {
     };
 
     this.queue.push(message);
-    this.queue.sort((a, b) => b.priority - a.priority);
+    this.sortQueue();
 
     logger.debug('Message enqueued', { 
       messageId: message.id,
@@ -79,6 +79,13 @@ export class MessageQueue extends EventEmitter {
   }
 
   /**
+   * Sort queue by priority (highest first)
+   */
+  private sortQueue(): void {
+    this.queue.sort((a, b) => b.priority - a.priority);
+  }
+
+  /**
    * Process messages in the queue
    */
   private async processQueue(): Promise<void> {
@@ -92,7 +99,7 @@ export class MessageQueue extends EventEmitter {
         const handler = this.handlers.get(message.data.type);
 
         if (!handler) {
-          this.queue.shift(); // Remove message if no handler exists
+          this.queue.shift();
           continue;
         }
 
@@ -130,6 +137,7 @@ export class MessageQueue extends EventEmitter {
             // Move to end of queue for retry
             this.queue.shift();
             this.queue.push(message);
+            this.sortQueue();
             
             logger.warn('Message processing failed, will retry', {
               messageId: message.id,
