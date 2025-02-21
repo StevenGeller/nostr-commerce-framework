@@ -167,7 +167,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## Security
 
-For security concerns, please email security@stevengeller.com or open a security advisory on GitHub.
+For security concerns, please open a security advisory on GitHub.
 
 ## Support
 
