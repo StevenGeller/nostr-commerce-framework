@@ -10,7 +10,7 @@ The main framework class that manages Nostr connections, commerce features, and 
 import { NostrCommerce } from 'nostr-commerce-framework';
 
 const framework = new NostrCommerce({
-  relays: ['wss://relay.damus.io'],
+  relays: ['wss://relay.primal.net'],
   publicKey: 'your-public-key',
   privateKey: 'your-private-key'
 });

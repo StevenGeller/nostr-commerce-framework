@@ -9,7 +9,7 @@ describe('NostrCommerce Framework', () => {
 
   beforeEach(() => {
     framework = new NostrCommerce({
-      relays: ['wss://relay.damus.io'],
+      relays: ['wss://relay.primal.net'],
       publicKey: 'test-public-key',
       privateKey: 'test-private-key',
     });

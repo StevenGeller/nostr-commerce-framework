@@ -5,7 +5,7 @@ async function main() {
   // Initialize the framework
   const framework = new NostrCommerce({
     relays: [
-      'wss://relay.damus.io',
+      'wss://relay.primal.net',
       'wss://relay.nostr.band'
     ],
     publicKey: process.env.PUBLIC_KEY!,

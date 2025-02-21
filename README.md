@@ -64,7 +64,7 @@ import { NostrCommerce } from 'nostr-commerce-framework';
 
 // Initialize the framework
 const framework = new NostrCommerce({
-  relays: ['wss://relay.damus.io'],
+  relays: ['wss://relay.primal.net'],
   publicKey: process.env.PUBLIC_KEY,
   privateKey: process.env.PRIVATE_KEY
 });
@@ -172,7 +172,6 @@ For security concerns, please open a security advisory on GitHub.
 ## Support
 
 - GitHub Issues: [Report bugs or request features](https://github.com/stevengeller/nostr-commerce-framework/issues)
-- GitHub Discussions: [Ask questions and discuss](https://github.com/stevengeller/nostr-commerce-framework/discussions)
 
 ## License
 
