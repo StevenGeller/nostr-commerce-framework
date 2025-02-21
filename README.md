@@ -173,7 +173,6 @@ For security concerns, please open a security advisory on GitHub.
 
 - GitHub Issues: [Report bugs or request features](https://github.com/stevengeller/nostr-commerce-framework/issues)
 - GitHub Discussions: [Ask questions and discuss](https://github.com/stevengeller/nostr-commerce-framework/discussions)
-- Email: support@stevengeller.com
 
 ## License
 
