@@ -146,5 +146,4 @@ By contributing, you agree that your contributions will be licensed under its MI
 ## Questions?
 
 Contact the maintainers:
-- Email: support@stevengeller.com
 - GitHub Discussions: [nostr-commerce-framework/discussions](https://github.com/stevengeller/nostr-commerce-framework/discussions)
