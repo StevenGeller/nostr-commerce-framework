@@ -8,15 +8,43 @@
         <h1><%= image.title %></h1>
         <p class="lead"><%= image.description %></p>
         <p class="h3 mb-4">Price: <%= image.price %> sats</p>
+        <p>Seller: <code><%= image.pubkey %></code></p>
+        <% if (image.lud16) { %>
+        <p>Lightning Address: <code><%= image.lud16 %></code></p>
+        <% } %>
         
-        <div id="purchaseSection">
-            <button class="btn btn-primary btn-lg" onclick="purchaseImage()">Purchase Image</button>
+        <div id="nostrSection" class="mb-4">
+            <div class="alert alert-info">
+                <h5>Connect with Nostr</h5>
+                <p>Use your Nostr extension (like nos2x or Alby) to identify yourself for the purchase.</p>
+                <button class="btn btn-secondary" onclick="connectNostr()">Connect Nostr</button>
+            </div>
+            <div id="nostrConnected" style="display: none;">
+                <div class="alert alert-success">
+                    <p>Connected with pubkey: <code id="userPubkey"></code></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="purchaseSection" style="display: none;">
+            <h4>Choose Payment Method</h4>
+            <div class="btn-group mb-4" role="group">
+                <button class="btn btn-primary btn-lg" onclick="purchaseWithInvoice()">
+                    Pay with Lightning Invoice
+                </button>
+                <% if (image.lud16) { %>
+                <button class="btn btn-success btn-lg" onclick="purchaseWithZap()">
+                    Pay with Zap
+                </button>
+                <% } %>
+            </div>
         </div>
 
         <div id="paymentSection" style="display: none;">
             <div class="alert alert-info" role="alert">
                 <p>Payment invoice created! Please pay the invoice to download the image.</p>
                 <p>Invoice ID: <span id="invoiceId"></span></p>
+                <p>A Nostr event will be created to record your purchase once payment is confirmed.</p>
             </div>
             <div class="progress mb-3" style="height: 20px;">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" 
@@ -25,9 +53,21 @@
             <button class="btn btn-secondary" onclick="checkPayment()">Check Payment Status</button>
         </div>
 
+        <div id="zapSection" style="display: none;">
+            <div class="alert alert-info" role="alert">
+                <p>Send a Zap of exactly <%= image.price %> sats to complete the purchase.</p>
+                <p>The download will be available once the Zap is confirmed.</p>
+            </div>
+            <button class="btn btn-success btn-lg" onclick="sendZap()">
+                Send Zap
+            </button>
+        </div>
+
         <div id="downloadSection" style="display: none;">
             <div class="alert alert-success" role="alert">
-                Payment received! You can now download your image.
+                <p>Payment received! You can now download your image.</p>
+                <p>Payment type: <span id="paymentType"></span></p>
+                <p>Purchase recorded on Nostr with event ID: <code id="purchaseEventId"></code></p>
             </div>
             <a id="downloadButton" href="#" class="btn btn-success btn-lg">Download Image</a>
         </div>
@@ -35,13 +75,39 @@
 </div>
 
 <script>
-let currentInvoiceId = null;
+let currentPaymentId = null;
 let checkInterval = null;
+let userPubkey = null;
 
-async function purchaseImage() {
+async function connectNostr() {
+    try {
+        // Try to get public key from Nostr extension
+        const pubkey = await window.nostr.getPublicKey();
+        userPubkey = pubkey;
+        
+        document.getElementById('userPubkey').textContent = pubkey;
+        document.getElementById('nostrConnected').style.display = 'block';
+        document.getElementById('purchaseSection').style.display = 'block';
+    } catch (error) {
+        alert('Failed to connect to Nostr: ' + error.message);
+    }
+}
+
+async function purchaseWithInvoice() {
+    if (!userPubkey) {
+        alert('Please connect with Nostr first');
+        return;
+    }
+
     try {
         const response = await fetch('/purchase/<%= image.id %>', {
-            method: 'POST'
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                buyerPubkey: userPubkey
+            })
         });
         const data = await response.json();
         
@@ -50,8 +116,8 @@ async function purchaseImage() {
             return;
         }
 
-        currentInvoiceId = data.invoiceId;
-        document.getElementById('invoiceId').textContent = currentInvoiceId;
+        currentPaymentId = data.invoiceId;
+        document.getElementById('invoiceId').textContent = currentPaymentId;
         document.getElementById('purchaseSection').style.display = 'none';
         document.getElementById('paymentSection').style.display = 'block';
         
@@ -59,6 +125,41 @@ async function purchaseImage() {
         startPaymentCheck();
     } catch (error) {
         alert('Failed to create purchase: ' + error.message);
+    }
+}
+
+async function purchaseWithZap() {
+    if (!userPubkey) {
+        alert('Please connect with Nostr first');
+        return;
+    }
+
+    document.getElementById('purchaseSection').style.display = 'none';
+    document.getElementById('zapSection').style.display = 'block';
+}
+
+async function sendZap() {
+    try {
+        // Create a Zap request event
+        const zapEvent = {
+            kind: 9734, // Zap request
+            content: 'Purchasing <%= image.title %>',
+            tags: [
+                ['p', '<%= image.pubkey %>'],
+                ['amount', '<%= image.price %>'],
+                ['relays', '<%= process.env.NOSTR_RELAY_URL %>'],
+                ['lud16', '<%= image.lud16 %>']
+            ]
+        };
+
+        // Sign and publish the zap request
+        const signedEvent = await window.nostr.signEvent(zapEvent);
+        
+        // The extension should handle the payment
+        // We'll start checking for the zap event
+        startZapCheck(signedEvent.id);
+    } catch (error) {
+        alert('Failed to send Zap: ' + error.message);
     }
 }
 
@@ -70,15 +171,22 @@ function startPaymentCheck() {
     checkInterval = setInterval(checkPayment, 5000); // Check every 5 seconds
 }
 
+function startZapCheck(zapRequestId) {
+    currentPaymentId = zapRequestId;
+    startPaymentCheck();
+}
+
 async function checkPayment() {
-    if (!currentInvoiceId) return;
+    if (!currentPaymentId) return;
 
     try {
-        const response = await fetch(`/payment/${currentInvoiceId}`);
+        const response = await fetch(`/payment/${currentPaymentId}`);
         const data = await response.json();
         
         if (data.paid) {
             clearInterval(checkInterval);
+            document.getElementById('paymentType').textContent = data.paymentType;
+            document.getElementById('purchaseEventId').textContent = data.purchaseEventId || 'Processing...';
             showDownloadSection();
         }
     } catch (error) {
@@ -88,9 +196,27 @@ async function checkPayment() {
 
 function showDownloadSection() {
     document.getElementById('paymentSection').style.display = 'none';
+    document.getElementById('zapSection').style.display = 'none';
     document.getElementById('downloadSection').style.display = 'block';
     
     const downloadButton = document.getElementById('downloadButton');
-    downloadButton.href = `/download/${currentInvoiceId}`;
+    downloadButton.href = `/download/${currentPaymentId}`;
 }
+
+// Check for Nostr extension on load
+window.addEventListener('load', () => {
+    if (window.nostr) {
+        document.getElementById('nostrSection').style.display = 'block';
+    } else {
+        document.getElementById('nostrSection').innerHTML = `
+            <div class="alert alert-warning">
+                <h5>Nostr Extension Required</h5>
+                <p>Please install a Nostr extension like nos2x or Alby to make purchases.</p>
+                <a href="https://github.com/nostr-protocol/nips" target="_blank" class="btn btn-warning">
+                    Learn More
+                </a>
+            </div>
+        `;
+    }
+});
 </script>
