@@ -1,0 +1,96 @@
+<%- include('layout') %>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="/preview/<%= image.id %>" class="img-fluid" alt="<%= image.title %>">
+    </div>
+    <div class="col-md-6">
+        <h1><%= image.title %></h1>
+        <p class="lead"><%= image.description %></p>
+        <p class="h3 mb-4">Price: <%= image.price %> sats</p>
+        
+        <div id="purchaseSection">
+            <button class="btn btn-primary btn-lg" onclick="purchaseImage()">Purchase Image</button>
+        </div>
+
+        <div id="paymentSection" style="display: none;">
+            <div class="alert alert-info" role="alert">
+                <p>Payment invoice created! Please pay the invoice to download the image.</p>
+                <p>Invoice ID: <span id="invoiceId"></span></p>
+            </div>
+            <div class="progress mb-3" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                     role="progressbar" style="width: 0%"></div>
+            </div>
+            <button class="btn btn-secondary" onclick="checkPayment()">Check Payment Status</button>
+        </div>
+
+        <div id="downloadSection" style="display: none;">
+            <div class="alert alert-success" role="alert">
+                Payment received! You can now download your image.
+            </div>
+            <a id="downloadButton" href="#" class="btn btn-success btn-lg">Download Image</a>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentInvoiceId = null;
+let checkInterval = null;
+
+async function purchaseImage() {
+    try {
+        const response = await fetch('/purchase/<%= image.id %>', {
+            method: 'POST'
+        });
+        const data = await response.json();
+        
+        if (data.error) {
+            alert('Error: ' + data.message);
+            return;
+        }
+
+        currentInvoiceId = data.invoiceId;
+        document.getElementById('invoiceId').textContent = currentInvoiceId;
+        document.getElementById('purchaseSection').style.display = 'none';
+        document.getElementById('paymentSection').style.display = 'block';
+        
+        // Start checking payment status
+        startPaymentCheck();
+    } catch (error) {
+        alert('Failed to create purchase: ' + error.message);
+    }
+}
+
+function startPaymentCheck() {
+    if (checkInterval) {
+        clearInterval(checkInterval);
+    }
+    
+    checkInterval = setInterval(checkPayment, 5000); // Check every 5 seconds
+}
+
+async function checkPayment() {
+    if (!currentInvoiceId) return;
+
+    try {
+        const response = await fetch(`/payment/${currentInvoiceId}`);
+        const data = await response.json();
+        
+        if (data.paid) {
+            clearInterval(checkInterval);
+            showDownloadSection();
+        }
+    } catch (error) {
+        console.error('Failed to check payment:', error);
+    }
+}
+
+function showDownloadSection() {
+    document.getElementById('paymentSection').style.display = 'none';
+    document.getElementById('downloadSection').style.display = 'block';
+    
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.href = `/download/${currentInvoiceId}`;
+}
+</script>
