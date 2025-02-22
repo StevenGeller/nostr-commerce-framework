@@ -2,8 +2,8 @@
 
 A comprehensive, open-source framework for building advanced interaction and commerce features on the Nostr protocol, with integrated support for Bitcoin, Lightning Network, and Nostr Zaps.
 
-[![Build Status](https://github.com/stevengeller/nostr-commerce-framework/workflows/CI/badge.svg)](https://github.com/stevengeller/nostr-commerce-framework/actions)
-[![npm version](https://badge.fury.io/js/nostr-commerce-framework.svg)](https://badge.fury.io/js/nostr-commerce-framework)
+[![Build Status](https://github.com/nostr-commerce/nostr-commerce-framework/workflows/CI/badge.svg)](https://github.com/nostr-commerce/nostr-commerce-framework/actions)
+[![npm version](https://img.shields.io/npm/v/nostr-commerce-framework.svg)](https://www.npmjs.com/package/nostr-commerce-framework)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -85,7 +85,7 @@ framework.commerce.on('paymentReceived', (payment) => {
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/stevengeller/nostr-commerce-framework.git
+   git clone https://github.com/nostr-commerce/nostr-commerce-framework.git
    cd nostr-commerce-framework
    ```
 
@@ -162,7 +162,7 @@ For security concerns, please open a security advisory on GitHub. See our [Secur
 
 ## Support
 
-- GitHub Issues: [Report bugs or request features](https://github.com/stevengeller/nostr-commerce-framework/issues)
+- GitHub Issues: [Report bugs or request features](https://github.com/nostr-commerce/nostr-commerce-framework/issues)
 
 ## License
 
