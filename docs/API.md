@@ -12,7 +12,8 @@ import { NostrCommerce } from 'nostr-commerce-framework';
 const framework = new NostrCommerce({
   relays: ['wss://relay.primal.net'],
   publicKey: 'your-public-key',
-  privateKey: 'your-private-key'
+  privateKey: 'your-private-key',
+  lud16: 'your-lightning-address@getalby.com'  // Optional, for Zap support
 });
 ```
 
@@ -23,6 +24,7 @@ const framework = new NostrCommerce({
 | relays | string[] | List of Nostr relay URLs |
 | publicKey | string | Your Nostr public key |
 | privateKey | string | Your Nostr private key |
+| lud16? | string | Lightning Address for Zap support |
 | maxConnections? | number | Maximum relay connections (default: 10) |
 | connectionTimeout? | number | Connection timeout in ms (default: 5000) |
 | rateLimitWindow? | number | Rate limit window in ms (default: 60000) |
@@ -42,62 +44,37 @@ Publish an event to the Nostr network.
 ##### `subscribe(filters: any[], callback: (event: NostrEvent) => void): () => void`
 Subscribe to events matching specific filters.
 
-### Interaction Module
-
-Handles messaging and user interactions.
-
-```typescript
-const interaction = framework.interaction;
-
-// Send a message
-const messageId = await interaction.sendMessage(
-  'Hello!',
-  'recipient-public-key'
-);
-
-// Subscribe to messages
-const unsubscribe = interaction.subscribe((event) => {
-  console.log('New message:', event);
-});
-```
-
-#### Methods
-
-##### `sendMessage(content: string, recipient: string): Promise<string>`
-Send a direct message to a recipient.
-
-##### `subscribe(callback: (event: NostrEvent) => void): () => void`
-Subscribe to incoming messages.
-
 ### Commerce Module
 
-Handles payments and commerce features.
+Handles payments and commerce features, including Lightning Network and Nostr Zaps.
 
 ```typescript
 const commerce = framework.commerce;
 
-// Create an invoice
+// Create a Lightning invoice
 const invoice = await commerce.createInvoice({
   amount: 1000,
   description: 'Test payment'
 });
 
-// Process a tip
-await commerce.processTip({
-  recipient: 'recipient-key',
-  amount: 500
+// Process a Zap
+await commerce.processZap({
+  recipient: 'recipient-pubkey',
+  amount: 1000,
+  comment: 'Great content!'
 });
 
-// Listen for payments
+// Listen for payments (both Lightning and Zaps)
 commerce.on('paymentReceived', (payment) => {
   console.log('Payment received:', payment);
+  // payment.type will be either 'invoice' or 'zap'
 });
 ```
 
 #### Methods
 
 ##### `createInvoice(options: InvoiceOptions): Promise<string>`
-Create a payment invoice.
+Create a Lightning Network payment invoice.
 
 ```typescript
 interface InvoiceOptions {
@@ -108,126 +85,143 @@ interface InvoiceOptions {
 }
 ```
 
-##### `processTip(options: TipOptions): Promise<string>`
-Send a tip to a recipient.
+##### `processZap(options: ZapOptions): Promise<string>`
+Process a Nostr Zap payment.
 
 ```typescript
-interface TipOptions {
+interface ZapOptions {
   recipient: string;
   amount: number;
-  message?: string;
+  comment?: string;
+  eventId?: string;  // Optional reference event
+  tags?: string[][];  // Additional NIP-57 tags
 }
 ```
 
-##### `verifyPayment(invoiceId: string): Promise<boolean>`
-Check if a payment has been received.
+##### `verifyPayment(paymentId: string, type?: 'invoice' | 'zap'): Promise<boolean>`
+Check if a payment has been received. Type is optional - if not specified, both payment types will be checked.
+
+### Payment Events
+
+The framework handles both traditional Lightning payments and Nostr Zaps:
+
+```typescript
+// Lightning payment received
+commerce.on('paymentReceived', (payment) => {
+  if (payment.type === 'invoice') {
+    console.log('Lightning payment:', payment.invoiceId);
+  }
+});
+
+// Zap received
+commerce.on('paymentReceived', (payment) => {
+  if (payment.type === 'zap') {
+    console.log('Zap received:', {
+      amount: payment.amount,
+      sender: payment.senderPubkey,
+      eventId: payment.zapEventId
+    });
+  }
+});
+
+// Payment expired
+commerce.on('paymentExpired', (payment) => {
+  console.log('Payment expired:', payment);
+});
+```
+
+### Nostr Events
+
+The framework uses several Nostr event kinds:
+
+```typescript
+// Standard Nostr event kinds
+const ZAP_REQUEST = 9734;
+const ZAP_RECEIPT = 9735;
+
+// Custom event kinds for commerce
+const INVOICE_REQUEST = 30020;
+const PAYMENT_RECEIPT = 30021;
+
+// Subscribe to Zap events
+framework.subscribe([{ kinds: [ZAP_RECEIPT] }], (event) => {
+  console.log('Zap received:', event);
+});
+```
 
 ### Error Handling
 
-The framework uses custom error classes for detailed error information:
+The framework includes specific error handling for payment scenarios:
 
 ```typescript
 try {
-  await framework.start();
+  await commerce.processZap({
+    recipient: 'pubkey',
+    amount: 1000
+  });
 } catch (error) {
   if (error instanceof NostrError) {
-    console.error(
-      'Error code:', error.code,
-      'Message:', error.message,
-      'Details:', error.details
-    );
+    switch (error.code) {
+      case ErrorCode.ZAP_FAILED:
+        console.error('Zap failed:', error.details);
+        break;
+      case ErrorCode.INVALID_LIGHTNING_ADDRESS:
+        console.error('Invalid Lightning address');
+        break;
+      case ErrorCode.PAYMENT_FAILED:
+        console.error('Payment failed:', error.details);
+        break;
+    }
   }
 }
 ```
-
-### Events
-
-The framework emits various events you can listen to:
-
-```typescript
-// Framework events
-framework.on('ready', () => {
-  console.log('Framework is ready');
-});
-
-framework.on('relay:connected', (relay) => {
-  console.log('Connected to relay:', relay);
-});
-
-// Commerce events
-framework.commerce.on('paymentReceived', (payment) => {
-  console.log('Payment received:', payment);
-});
-
-framework.commerce.on('invoiceExpired', (invoiceId) => {
-  console.log('Invoice expired:', invoiceId);
-});
-```
-
-### Plugin System
-
-Extend the framework's functionality with plugins:
-
-```typescript
-interface Plugin {
-  onRegister?: (framework: NostrCommerce) => void;
-  onInitialize?: () => void | Promise<void>;
-  onStop?: () => void | Promise<void>;
-}
-
-const myPlugin: Plugin = {
-  onRegister(framework) {
-    // Setup plugin
-  },
-  async onInitialize() {
-    // Initialize plugin
-  },
-  async onStop() {
-    // Cleanup
-  }
-};
-
-framework.registerPlugin('my-plugin', myPlugin);
-```
-
-## Best Practices
-
-1. **Error Handling**
-   ```typescript
-   try {
-     await framework.commerce.createInvoice({
-       amount: 1000,
-       description: 'Test'
-     });
-   } catch (error) {
-     if (error.code === ErrorCode.INVALID_AMOUNT) {
-       // Handle invalid amount
-     }
-   }
-   ```
-
-2. **Resource Cleanup**
-   ```typescript
-   const unsubscribe = framework.subscribe(filters, callback);
-   // Later...
-   unsubscribe();
-   ```
-
-3. **Security**
-   - Store private keys securely
-   - Validate all input data
-   - Use rate limiting for public endpoints
-
-4. **Performance**
-   - Reuse connections when possible
-   - Clean up subscriptions when not needed
-   - Use appropriate cache settings
 
 ## Examples
 
 See the [examples directory](https://github.com/stevengeller/nostr-commerce-framework/tree/main/examples) for complete usage examples:
 
-- Basic usage
-- Commerce integration
-- Plugin development
-- Custom event handling
+### Image Store Example
+A complete e-commerce application demonstrating:
+- Image preview and watermarking
+- Lightning Network payments
+- Nostr Zap integration
+- Purchase verification
+- Secure content delivery
+
+### Basic Commerce Example
+```typescript
+import { NostrCommerce } from 'nostr-commerce-framework';
+
+const framework = new NostrCommerce({
+  relays: ['wss://relay.primal.net'],
+  publicKey: 'your-public-key',
+  privateKey: 'your-private-key',
+  lud16: 'your-lightning-address@getalby.com'
+});
+
+// Start the framework
+await framework.start();
+
+// Create an invoice
+const invoice = await framework.commerce.createInvoice({
+  amount: 1000,
+  description: 'Test payment'
+});
+
+// Listen for both Lightning and Zap payments
+framework.commerce.on('paymentReceived', (payment) => {
+  if (payment.type === 'zap') {
+    console.log('Zap received:', payment.zapEventId);
+  } else {
+    console.log('Lightning payment received:', payment.invoiceId);
+  }
+});
+
+// Clean up
+await framework.stop();
+```
+
+For more examples and detailed documentation, visit:
+- [Commerce Integration Guide](docs/COMMERCE.md)
+- [Security Best Practices](docs/SECURITY.md)
+- [Plugin Development](docs/PLUGINS.md)

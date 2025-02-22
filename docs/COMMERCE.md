@@ -1,383 +1,238 @@
 # Commerce Integration Guide
 
-This guide provides detailed information on integrating payment processing capabilities using the Nostr Commerce Framework. It covers Bitcoin, Lightning Network, and Nostr Zaps integration, along with best practices for handling payments.
-
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Payment Methods](#payment-methods)
-3. [Integration Steps](#integration-steps)
-4. [API Reference](#api-reference)
-5. [Examples](#examples)
-6. [Best Practices](#best-practices)
+This guide explains how to integrate commerce features into your Nostr application using the Nostr Commerce Framework.
 
 ## Overview
 
-The Nostr Commerce Framework provides a unified interface for handling various cryptocurrency payment methods. The commerce module supports:
+The framework supports two primary payment methods:
+1. Lightning Network Payments
+2. Nostr Zaps (NIP-57)
 
-- Bitcoin on-chain transactions
-- Lightning Network payments
-- Nostr Zaps
-- Custom payment methods via plugins
+## Payment Flow
 
-### Architecture
-
-```
-┌─────────────────────────┐
-│    Commerce Manager     │
-├─────────────┬───────────┤
-│  Payment    │  Invoice  │
-│  Processor  │  Manager  │
-└─────────────┴───────────┘
-        ▲           ▲
-        │           │
-┌─────────────────────────┐
-│    Payment Providers    │
-├────────┬────────┬───────┤
-│Bitcoin │Lightning│ Zaps │
-└────────┴────────┴───────┘
+```mermaid
+graph TD
+    A[Customer] -->|Initiate Purchase| B{Payment Type}
+    B -->|Lightning| C[Create Invoice]
+    B -->|Zap| D[Create Zap Request]
+    C -->|BOLT11| E[Lightning Network]
+    D -->|NIP-57| F[Nostr Network]
+    E -->|Payment| G[Verification]
+    F -->|Zap Receipt| G
+    G -->|Success| H[Deliver Content]
 ```
 
-## Payment Methods
-
-### 1. Bitcoin Integration
+## Basic Setup
 
 ```typescript
-import { BitcoinPaymentProvider } from '@nostr-commerce/core';
+import { NostrCommerce } from 'nostr-commerce-framework';
 
-// Initialize Bitcoin payment provider
-const bitcoinProvider = new BitcoinPaymentProvider({
-  network: 'mainnet',
-  // Additional configuration
-});
-
-// Create an invoice
-const invoice = await bitcoinProvider.createInvoice({
-  amount: 100000, // Amount in satoshis
-  description: 'Product purchase',
-  expiresIn: 3600 // 1 hour
-});
-```
-
-### 2. Lightning Network
-
-```typescript
-import { LightningPaymentProvider } from '@nostr-commerce/core';
-
-// Initialize Lightning payment provider
-const lightningProvider = new LightningPaymentProvider({
-  nodeUrl: 'your-ln-node-url',
-  macaroon: 'your-macaroon'
-});
-
-// Create a Lightning invoice
-const invoice = await lightningProvider.createInvoice({
-  amount: 50000,
-  description: 'Lightning payment',
-  expiresIn: 1800 // 30 minutes
-});
-```
-
-### 3. Nostr Zaps
-
-```typescript
-import { ZapsPaymentProvider } from '@nostr-commerce/core';
-
-// Initialize Zaps provider
-const zapsProvider = new ZapsPaymentProvider({
-  relays: ['wss://relay.example.com'],
-  publicKey: 'your-public-key'
-});
-
-// Create a Zap invoice
-const zapInvoice = await zapsProvider.createInvoice({
-  amount: 21000,
-  description: 'Content support',
-  recipient: 'recipient-public-key'
-});
-```
-
-## Integration Steps
-
-### 1. Basic Setup
-
-```typescript
-import { NostrCommerce, CommerceManager } from '@nostr-commerce/core';
-
-// Initialize the framework
 const framework = new NostrCommerce({
-  // Framework configuration
+  relays: ['wss://relay.primal.net'],
+  publicKey: 'your-public-key',
+  privateKey: 'your-private-key',
+  lud16: 'your-lightning-address@getalby.com'  // For Zap support
 });
 
-// Get commerce manager instance
-const commerce = framework.commerce;
+await framework.start();
 ```
 
-### 2. Configure Payment Methods
+## Lightning Network Payments
+
+### Creating Invoices
 
 ```typescript
-// Configure payment methods
-await commerce.configurePaymentMethods({
-  bitcoin: {
-    enabled: true,
-    network: 'mainnet',
-    // Additional Bitcoin configuration
-  },
-  lightning: {
-    enabled: true,
-    nodeUrl: process.env.LIGHTNING_NODE_URL,
-    macaroon: process.env.LIGHTNING_MACAROON,
-    // Additional Lightning configuration
-  },
-  zaps: {
-    enabled: true,
-    relays: ['wss://relay.example.com'],
-    // Additional Zaps configuration
-  }
-});
-```
-
-### 3. Create Invoices
-
-```typescript
-// Create a new invoice
-const invoice = await commerce.createInvoice({
-  amount: 100000, // Amount in satoshis
-  currency: 'BTC',
+const invoice = await framework.commerce.createInvoice({
+  amount: 1000,  // Amount in sats
   description: 'Product purchase',
-  paymentMethods: ['bitcoin', 'lightning', 'zaps'],
-  metadata: {
-    orderId: 'order-123',
-    productId: 'prod-456'
+  expiry: 3600,  // Optional: expire in 1 hour
+  metadata: {    // Optional: custom metadata
+    orderId: '12345',
+    productId: 'xyz'
   }
 });
 ```
 
-### 4. Handle Payments
+### Verifying Payments
 
 ```typescript
-// Listen for payment events
-commerce.on('paymentReceived', async (payment) => {
-  // Validate payment
-  if (await commerce.verifyPayment(payment)) {
-    // Process order
-    await processOrder(payment.metadata.orderId);
-    
-    // Send confirmation
-    await sendConfirmation(payment);
+const isPaid = await framework.commerce.verifyPayment(invoiceId);
+if (isPaid) {
+  // Deliver product
+}
+```
+
+## Nostr Zaps
+
+### Setting Up Zap Support
+
+1. Configure Lightning Address:
+```typescript
+const framework = new NostrCommerce({
+  // ... other config
+  lud16: 'your-lightning-address@getalby.com'
+});
+```
+
+2. Listen for Zap events:
+```typescript
+framework.commerce.on('paymentReceived', (payment) => {
+  if (payment.type === 'zap') {
+    const { amount, senderPubkey, zapEventId } = payment;
+    // Handle Zap payment
   }
 });
 ```
 
-## API Reference
-
-### CommerceManager
-
-#### Methods
-
-##### createInvoice()
-Create a new payment invoice.
+### Processing Zaps
 
 ```typescript
-interface InvoiceOptions {
-  amount: number;
-  currency: string;
-  description: string;
-  paymentMethods: string[];
-  metadata?: any;
-  expiresIn?: number;
-}
-
-const invoice = await commerce.createInvoice(options);
-```
-
-##### verifyPayment()
-Verify a received payment.
-
-```typescript
-interface Payment {
-  id: string;
-  amount: number;
-  currency: string;
-  method: string;
-  status: PaymentStatus;
-  metadata: any;
-}
-
-const isValid = await commerce.verifyPayment(payment);
-```
-
-##### getPaymentStatus()
-Check payment status.
-
-```typescript
-const status = await commerce.getPaymentStatus(paymentId);
-```
-
-### Events
-
-#### paymentReceived
-Emitted when a payment is received.
-
-```typescript
-commerce.on('paymentReceived', (payment) => {
-  console.log('Payment received:', payment);
+// Create a Zap request
+const zapRequest = await framework.commerce.processZap({
+  recipient: 'seller-pubkey',
+  amount: 1000,
+  comment: 'Product purchase',
+  eventId: 'original-event-id',  // Optional
+  tags: [                        // Optional
+    ['product', 'xyz'],
+    ['order', '12345']
+  ]
 });
 ```
 
-#### paymentConfirmed
-Emitted when a payment is confirmed.
+### Verifying Zaps
 
 ```typescript
-commerce.on('paymentConfirmed', (payment) => {
-  console.log('Payment confirmed:', payment);
-});
+const isZapReceived = await framework.commerce.verifyPayment(
+  zapEventId,
+  'zap'
+);
 ```
 
-## Examples
+## Event Handling
 
-### 1. Basic Store Implementation
-
-```typescript
-import { NostrCommerce } from '@nostr-commerce/core';
-
-class Store {
-  private commerce: CommerceManager;
-
-  constructor() {
-    const framework = new NostrCommerce();
-    this.commerce = framework.commerce;
-    this.setupPaymentHandlers();
-  }
-
-  private setupPaymentHandlers() {
-    this.commerce.on('paymentReceived', this.handlePayment);
-    this.commerce.on('paymentConfirmed', this.fulfillOrder);
-  }
-
-  async createOrder(products: Product[]): Promise<Invoice> {
-    const amount = this.calculateTotal(products);
-    
-    return await this.commerce.createInvoice({
-      amount,
-      currency: 'BTC',
-      description: 'Store purchase',
-      paymentMethods: ['bitcoin', 'lightning'],
-      metadata: { products }
-    });
-  }
-
-  private async handlePayment(payment: Payment) {
-    if (await this.commerce.verifyPayment(payment)) {
-      await this.updateOrderStatus(payment);
-    }
-  }
-
-  private async fulfillOrder(payment: Payment) {
-    await this.processOrder(payment.metadata);
-    await this.sendConfirmation(payment);
-  }
-}
-```
-
-### 2. Subscription Service
+### Payment Events
 
 ```typescript
-class SubscriptionService {
-  private commerce: CommerceManager;
-
-  constructor() {
-    const framework = new NostrCommerce();
-    this.commerce = framework.commerce;
-    this.setupSubscriptionHandlers();
-  }
-
-  async createSubscription(userId: string, plan: Plan): Promise<Invoice> {
-    return await this.commerce.createInvoice({
-      amount: plan.price,
-      currency: 'BTC',
-      description: `${plan.name} Subscription`,
-      paymentMethods: ['bitcoin', 'lightning', 'zaps'],
-      metadata: {
-        userId,
-        planId: plan.id,
-        type: 'subscription'
-      }
-    });
-  }
-
-  private async handleSubscriptionPayment(payment: Payment) {
-    if (await this.commerce.verifyPayment(payment)) {
-      await this.activateSubscription(payment.metadata);
-    }
-  }
-}
-```
-
-## Best Practices
-
-### 1. Payment Verification
-
-```typescript
-async function verifyPayment(payment: Payment): Promise<boolean> {
-  // Verify payment amount
-  if (!verifyAmount(payment)) return false;
+// Listen for all payments
+framework.commerce.on('paymentReceived', (payment) => {
+  console.log('Payment type:', payment.type);
+  console.log('Amount:', payment.amount);
   
-  // Check payment method
-  if (!isSupportedMethod(payment.method)) return false;
-  
-  // Verify transaction
-  if (!await verifyTransaction(payment)) return false;
-  
-  return true;
-}
+  if (payment.type === 'zap') {
+    console.log('Zap event:', payment.zapEventId);
+  } else {
+    console.log('Invoice:', payment.invoiceId);
+  }
+});
+
+// Listen for expired payments
+framework.commerce.on('paymentExpired', (payment) => {
+  console.log('Expired payment:', payment);
+});
 ```
 
-### 2. Error Handling
+### Custom Events
+
+```typescript
+// Subscribe to specific events
+framework.subscribe(
+  [{ kinds: [30020, 30021] }],  // Custom commerce events
+  (event) => {
+    // Handle commerce events
+  }
+);
+```
+
+## Error Handling
 
 ```typescript
 try {
-  const invoice = await commerce.createInvoice(options);
+  await framework.commerce.createInvoice({
+    amount: 1000,
+    description: 'Test'
+  });
 } catch (error) {
-  if (error instanceof PaymentError) {
-    // Handle payment-specific error
-    handlePaymentError(error);
-  } else {
-    // Handle general error
-    handleError(error);
+  if (error instanceof NostrError) {
+    switch (error.code) {
+      case ErrorCode.INVALID_AMOUNT:
+        // Handle invalid amount
+        break;
+      case ErrorCode.PAYMENT_FAILED:
+        // Handle payment failure
+        break;
+      case ErrorCode.ZAP_FAILED:
+        // Handle Zap failure
+        break;
+    }
   }
 }
 ```
 
-### 3. Payment Monitoring
+## Security Considerations
 
-```typescript
-class PaymentMonitor {
-  private checkInterval: number = 60000; // 1 minute
+1. **Payment Verification**
+   - Always verify payments before delivering content
+   - Check both Lightning Network and Zap receipts
+   - Validate payment amounts match expected values
 
-  startMonitoring(paymentId: string) {
-    const interval = setInterval(async () => {
-      const status = await commerce.getPaymentStatus(paymentId);
-      
-      if (status === 'confirmed') {
-        clearInterval(interval);
-        await this.handleConfirmed(paymentId);
-      } else if (status === 'expired') {
-        clearInterval(interval);
-        await this.handleExpired(paymentId);
-      }
-    }, this.checkInterval);
-  }
-}
-```
+2. **Nostr Events**
+   - Verify event signatures
+   - Check event kinds match expected types
+   - Validate payment proofs
 
-### 4. Security Considerations
+3. **Content Protection**
+   - Use preview/watermarked content before payment
+   - Secure delivery mechanisms after payment
+   - Implement proper access controls
 
-- Always verify payment amounts
-- Implement rate limiting
-- Use secure random numbers for IDs
-- Validate all input data
-- Monitor for suspicious activity
-- Implement proper error handling
-- Use secure communication channels
-- Regular security audits
+## Best Practices
+
+1. **Payment Handling**
+   ```typescript
+   // Support both payment methods
+   const paymentOptions = {
+     lightning: {
+       invoice: 'bolt11...',
+       expires: 3600
+     },
+     zap: {
+       address: 'user@getalby.com',
+       pubkey: 'seller-pubkey'
+     }
+   };
+   ```
+
+2. **Event Management**
+   ```typescript
+   // Clean up subscriptions
+   const unsubscribe = framework.subscribe(filters, callback);
+   // Later...
+   unsubscribe();
+   ```
+
+3. **Error Recovery**
+   ```typescript
+   // Implement retry logic
+   const maxRetries = 3;
+   let attempts = 0;
+   
+   while (attempts < maxRetries) {
+     try {
+       await framework.commerce.verifyPayment(paymentId);
+       break;
+     } catch (error) {
+       attempts++;
+       await new Promise(r => setTimeout(r, 1000));
+     }
+   }
+   ```
+
+## Examples
+
+See the [examples directory](https://github.com/stevengeller/nostr-commerce-framework/tree/main/examples) for complete implementations:
+
+- Image Store with Zap support
+- Digital downloads platform
+- Content monetization system
+- Subscription service
