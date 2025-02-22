@@ -51,9 +51,9 @@ npm install nostr-commerce-framework
 ```typescript
 import { NostrCommerce } from 'nostr-commerce-framework';
 
-// Initialize the framework
+// Initialize the framework with Primal relay
 const framework = new NostrCommerce({
-  relays: ['wss://relay.example.com'],
+  relays: ['wss://relay.primal.net'],  // Using Primal's high-performance relay
   publicKey: 'your-public-key',
   privateKey: 'your-private-key'
 });
@@ -70,6 +70,27 @@ const invoice = await framework.commerce.createInvoice({
 // Process a Lightning payment
 framework.commerce.on('paymentReceived', (payment) => {
   console.log('Payment received:', payment);
+});
+```
+
+### Relay Configuration
+
+The framework supports various Nostr relays. By default, we recommend using Primal's relay (`wss://relay.primal.net`) for its:
+- High performance and reliability
+- Good global connectivity
+- Support for all standard Nostr event types
+- Robust infrastructure
+
+You can also use multiple relays for redundancy:
+
+```typescript
+const framework = new NostrCommerce({
+  relays: [
+    'wss://relay.primal.net',  // Primary relay
+    'wss://relay.example.com', // Backup relay
+  ],
+  publicKey: 'your-public-key',
+  privateKey: 'your-private-key'
 });
 ```
 
@@ -111,7 +132,7 @@ Create a `.env` file based on `.env.example`:
 
 ```env
 # Required Configuration
-RELAY_URLS=wss://relay1.com,wss://relay2.com
+RELAY_URLS=wss://relay.primal.net
 PUBLIC_KEY=your-public-key
 PRIVATE_KEY=your-private-key
 
@@ -173,4 +194,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Nostr Protocol community
 - Bitcoin and Lightning Network developers
+- Primal team for their high-performance relay
 - All contributors and supporters
