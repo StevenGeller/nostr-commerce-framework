@@ -1,7 +1,13 @@
+import { EventEmitter } from 'events';
+
 export interface NostrConfig {
   relays: string[];
   publicKey: string;
   privateKey: string;
+  maxConnections?: number;
+  connectionTimeout?: number;
+  rateLimitWindow?: number;
+  rateLimitMax?: number;
 }
 
 export interface NostrEvent {
@@ -20,13 +26,28 @@ export interface Plugin {
   onStop?: () => void | Promise<void>;
 }
 
-export interface InteractionModule {
+export interface InteractionModule extends EventEmitter {
   sendMessage: (content: string, recipient: string) => Promise<string>;
   subscribe: (callback: (event: NostrEvent) => void) => () => void;
 }
 
-export interface CommerceModule {
-  createInvoice: (amount: number, description: string) => Promise<string>;
-  processTip: (recipient: string, amount: number) => Promise<string>;
+export interface InvoiceOptions {
+  amount: number;
+  description: string;
+  expiry?: number;
+  metadata?: Record<string, any>;
+}
+
+export interface TipOptions {
+  recipient: string;
+  amount: number;
+  message?: string;
+}
+
+export interface CommerceModule extends EventEmitter {
+  createInvoice: (options: InvoiceOptions) => Promise<string>;
+  processTip: (options: TipOptions) => Promise<string>;
   verifyPayment: (invoiceId: string) => Promise<boolean>;
+  on(event: 'paymentReceived', listener: (payment: any) => void): this;
+  on(event: 'invoiceExpired', listener: (invoiceId: string) => void): this;
 }

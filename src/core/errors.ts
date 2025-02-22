@@ -1,81 +1,90 @@
 export enum ErrorCode {
   // Connection Errors
   RELAY_CONNECTION_FAILED = 'RELAY_CONNECTION_FAILED',
-  RELAY_DISCONNECTED = 'RELAY_DISCONNECTED',
-  RELAY_TIMEOUT = 'RELAY_TIMEOUT',
-  CONNECTION_LIMIT_EXCEEDED = 'CONNECTION_LIMIT_EXCEEDED',
+  CONNECTION_TIMEOUT = 'CONNECTION_TIMEOUT',
+  MAX_CONNECTIONS_EXCEEDED = 'MAX_CONNECTIONS_EXCEEDED',
+
+  // Configuration Errors
+  INVALID_CONFIG = 'INVALID_CONFIG',
+  MISSING_CONFIG = 'MISSING_CONFIG',
+  INVALID_KEY = 'INVALID_KEY',
 
   // Event Errors
-  INVALID_EVENT = 'INVALID_EVENT',
-  EVENT_PUBLISH_FAILED = 'EVENT_PUBLISH_FAILED',
   EVENT_VALIDATION_FAILED = 'EVENT_VALIDATION_FAILED',
-  INVALID_MESSAGE_TYPE = 'INVALID_MESSAGE_TYPE',
+  PUBLISH_FAILED = 'PUBLISH_FAILED',
+  SUBSCRIPTION_FAILED = 'SUBSCRIPTION_FAILED',
 
-  // Queue Errors
-  QUEUE_FULL = 'QUEUE_FULL',
-  PROCESSING_TIMEOUT = 'PROCESSING_TIMEOUT',
-  MAX_RETRIES_EXCEEDED = 'MAX_RETRIES_EXCEEDED',
-
-  // Security Errors
-  INVALID_KEY = 'INVALID_KEY',
-  ENCRYPTION_FAILED = 'ENCRYPTION_FAILED',
-  DECRYPTION_FAILED = 'DECRYPTION_FAILED',
-  UNAUTHORIZED = 'UNAUTHORIZED',
-
-  // Payment Errors
-  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  // Commerce Errors
   INVALID_AMOUNT = 'INVALID_AMOUNT',
   INSUFFICIENT_FUNDS = 'INSUFFICIENT_FUNDS',
+  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  INVOICE_EXPIRED = 'INVOICE_EXPIRED',
   INVOICE_NOT_FOUND = 'INVOICE_NOT_FOUND',
+  PAYMENT_VERIFICATION_FAILED = 'PAYMENT_VERIFICATION_FAILED',
+
+  // Security Errors
+  UNAUTHORIZED = 'UNAUTHORIZED',
+  RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED',
+  INVALID_SIGNATURE = 'INVALID_SIGNATURE',
 
   // Plugin Errors
+  PLUGIN_REGISTRATION_FAILED = 'PLUGIN_REGISTRATION_FAILED',
   PLUGIN_INITIALIZATION_FAILED = 'PLUGIN_INITIALIZATION_FAILED',
   PLUGIN_NOT_FOUND = 'PLUGIN_NOT_FOUND',
-  PLUGIN_ALREADY_REGISTERED = 'PLUGIN_ALREADY_REGISTERED',
 
   // General Errors
   INTERNAL_ERROR = 'INTERNAL_ERROR',
-  INVALID_CONFIGURATION = 'INVALID_CONFIGURATION',
-  RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED'
-}
-
-export interface ErrorDetails {
-  code: ErrorCode;
-  message: string;
-  timestamp: number;
-  details?: Record<string, any>;
-  stack?: string;
+  INVALID_PARAMETER = 'INVALID_PARAMETER',
+  NOT_IMPLEMENTED = 'NOT_IMPLEMENTED'
 }
 
 export class NostrError extends Error {
-  public readonly code: ErrorCode;
-  public readonly timestamp: number;
-  public readonly details?: Record<string, any>;
-
-  constructor(code: ErrorCode, message: string, details?: Record<string, any>) {
+  constructor(
+    public code: ErrorCode,
+    message: string,
+    public details?: any
+  ) {
     super(message);
-    this.code = code;
-    this.timestamp = Date.now();
-    this.details = details;
     this.name = 'NostrError';
-
-    // Ensure proper stack trace
-    Error.captureStackTrace(this, this.constructor);
-  }
-
-  public toJSON(): ErrorDetails {
-    return {
-      code: this.code,
-      message: this.message,
-      timestamp: this.timestamp,
-      details: this.details,
-      stack: this.stack
-    };
-  }
-
-  public static fromJSON(error: ErrorDetails): NostrError {
-    const nostrError = new NostrError(error.code, error.message, error.details);
-    nostrError.stack = error.stack;
-    return nostrError;
+    Object.setPrototypeOf(this, NostrError.prototype);
   }
 }
+
+// Error factory functions for common errors
+export const createConnectionError = (relay: string, details?: any) => 
+  new NostrError(
+    ErrorCode.RELAY_CONNECTION_FAILED,
+    `Failed to connect to relay: ${relay}`,
+    details
+  );
+
+export const createPublishError = (details?: any) =>
+  new NostrError(
+    ErrorCode.PUBLISH_FAILED,
+    'Failed to publish event',
+    details
+  );
+
+export const createValidationError = (message: string, details?: any) =>
+  new NostrError(
+    ErrorCode.EVENT_VALIDATION_FAILED,
+    message,
+    details
+  );
+
+export const createAuthError = (message: string, details?: any) =>
+  new NostrError(
+    ErrorCode.UNAUTHORIZED,
+    message,
+    details
+  );
+
+export const createRateLimitError = (details?: any) =>
+  new NostrError(
+    ErrorCode.RATE_LIMIT_EXCEEDED,
+    'Rate limit exceeded',
+    details
+  );
+
+export const createPaymentError = (message: string, code: ErrorCode, details?: any) =>
+  new NostrError(code, message, details);
