@@ -81,7 +81,7 @@ The framework uses an event-driven architecture with the following components:
    ```
    Event Source → Middleware Chain → Handler → Response
         ↑                                        |
-        └────────────── Event Bus ──────────────┘
+        └────────────── Event Bus ───────────────┘
    ```
 
 ### Integration Architecture
@@ -130,11 +130,11 @@ The plugin system follows these architectural principles:
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│  Event   │ → │Middleware │ → │ Handler  │ → │ Response │
-│  Source  │    │  Chain   │    │         │    │         │
+│  Event   │ → │Middleware │ →  │ Handler  │ →  │ Response │
+│  Source  │    │  Chain   │    │          │    │          │
 └──────────┘    └──────────┘    └──────────┘    └──────────┘
       ↑                                               │
-      └───────────────── Event Bus ─────────────────┘
+      └───────────────── Event Bus ───────────────────┘
 ```
 
 ### Error Handling
