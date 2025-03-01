@@ -8,23 +8,23 @@ The Nostr Commerce Framework is built with a modular, event-driven architecture 
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                  Nostr Commerce Framework                 │
-├──────────────┬──────────────┬───────────────┬───────────┤
-│   Commerce   │ Interaction  │    Security   │  Core     │
-│   Module     │   Module     │    Module     │  Module   │
-└──────────────┴──────────────┴───────────────┴───────────┘
+│                  Nostr Commerce Framework                │
+├──────────────┬──────────────┬───────────────┬────────────┤
+│   Commerce   │ Interaction  │    Security   │  Core      │
+│   Module     │   Module     │    Module     │  Module    │
+└──────────────┴──────────────┴───────────────┴────────────┘
         ▲              ▲              ▲             ▲
         │              │              │             │
         v              v              v             v
 ┌──────────────────────────────────────────────────────────┐
-│                     Event Bus / Middleware                │
+│                     Event Bus / Middleware               │
 └──────────────────────────────────────────────────────────┘
         ▲              ▲              ▲             ▲
         │              │              │             │
         v              v              v             v
 ┌──────────────┬──────────────┬───────────────┬───────────┐
 │   Bitcoin    │  Lightning   │    Nostr      │  Plugin   │
-│  Integration │  Network     │    Protocol    │  System   │
+│  Integration │  Network     │    Protocol   │  System   │
 └──────────────┴──────────────┴───────────────┴───────────┘
 ```
 
@@ -81,7 +81,7 @@ The framework uses an event-driven architecture with the following components:
    ```
    Event Source → Middleware Chain → Handler → Response
         ↑                                        |
-        └────────────── Event Bus ──────────────┘
+        └────────────── Event Bus ───────────────┘
    ```
 
 ### Integration Architecture
@@ -130,11 +130,11 @@ The plugin system follows these architectural principles:
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│  Event   │ → │Middleware │ → │ Handler  │ → │ Response │
-│  Source  │    │  Chain   │    │         │    │         │
+│  Event   │ → │Middleware │ →  │ Handler  │ →  │ Response │
+│  Source  │    │  Chain   │    │          │    │          │
 └──────────┘    └──────────┘    └──────────┘    └──────────┘
       ↑                                               │
-      └───────────────── Event Bus ─────────────────┘
+      └───────────────── Event Bus ───────────────────┘
 ```
 
 ### Error Handling
