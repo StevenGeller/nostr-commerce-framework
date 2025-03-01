@@ -8,23 +8,23 @@ The Nostr Commerce Framework is built with a modular, event-driven architecture 
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                  Nostr Commerce Framework                 │
-├──────────────┬──────────────┬───────────────┬───────────┤
-│   Commerce   │ Interaction  │    Security   │  Core     │
-│   Module     │   Module     │    Module     │  Module   │
-└──────────────┴──────────────┴───────────────┴───────────┘
+│                  Nostr Commerce Framework                │
+├──────────────┬──────────────┬───────────────┬────────────┤
+│   Commerce   │ Interaction  │    Security   │  Core      │
+│   Module     │   Module     │    Module     │  Module    │
+└──────────────┴──────────────┴───────────────┴────────────┘
         ▲              ▲              ▲             ▲
         │              │              │             │
         v              v              v             v
 ┌──────────────────────────────────────────────────────────┐
-│                     Event Bus / Middleware                │
+│                     Event Bus / Middleware               │
 └──────────────────────────────────────────────────────────┘
         ▲              ▲              ▲             ▲
         │              │              │             │
         v              v              v             v
 ┌──────────────┬──────────────┬───────────────┬───────────┐
 │   Bitcoin    │  Lightning   │    Nostr      │  Plugin   │
-│  Integration │  Network     │    Protocol    │  System   │
+│  Integration │  Network     │    Protocol   │  System   │
 └──────────────┴──────────────┴───────────────┴───────────┘
 ```
 
