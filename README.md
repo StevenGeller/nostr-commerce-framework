@@ -41,10 +41,36 @@ Our documentation is organized into several comprehensive guides:
 
 ### Installation
 
+#### From npm (Coming Soon)
 ```bash
 # Not yet published to npm
 npm install nostr-commerce-framework
 ```
+
+#### From Source
+```bash
+git clone https://github.com/StevenGeller/nostr-commerce-framework.git
+cd nostr-commerce-framework
+npm install
+```
+
+#### Development Build
+```bash
+npm run build
+```
+
+### System Requirements
+
+| Component | Minimum Version | Recommended Version |
+|-----------|----------------|-------------------|
+| Node.js   | 16.0.0        | 18.x or later    |
+| npm       | 7.0.0         | 8.x or later     |
+| Bitcoin Core | 22.0       | 24.0 or later    |
+
+#### Lightning Implementation Support
+- LND: v0.15.0 or later
+- Core Lightning: v22.11 or later
+- Eclair: v0.8.0 or later
 
 ### Basic Usage
 
@@ -75,23 +101,49 @@ framework.commerce.on('paymentReceived', (payment) => {
 
 ### Relay Configuration
 
-The framework supports various Nostr relays. By default, we recommend using Primal's relay (`wss://relay.primal.net`) for its:
-- High performance and reliability
-- Good global connectivity
-- Support for all standard Nostr event types
-- Robust infrastructure
+The framework supports various Nostr relays. We recommend using a combination of reliable relays for redundancy and optimal performance.
 
-You can also use multiple relays for redundancy:
+#### Recommended Relays
+- Primary: `wss://relay.primal.net`
+- Alternatives:
+  - `wss://relay.damus.io`
+  - `wss://nostr.zebedee.cloud`
+  - `wss://relay.snort.social`
+  - `wss://relay.nostr.band`
+
+#### Relay Selection Criteria
+- Performance metrics and latency
+- Geographic distribution
+- Historical uptime statistics
+- NIP support level (especially NIPs 1, 9, 57)
+- Rate limiting policies
+- Content moderation stance
+
+#### Example Configuration
 
 ```typescript
 const framework = new NostrCommerce({
   relays: [
-    'wss://relay.primal.net',  // Primary relay
-    'wss://relay.example.com', // Backup relay
+    'wss://relay.primal.net',    // Primary relay
+    'wss://relay.damus.io',      // Geographic redundancy
+    'wss://nostr.zebedee.cloud', // Payment-focused relay
   ],
   publicKey: 'your-public-key',
   privateKey: 'your-private-key'
 });
+
+// Monitor relay health
+framework.on('relay.status', (status) => {
+  console.log('Relay status:', status);
+});
+```
+
+#### Fallback Strategy
+The framework automatically handles relay failures by:
+- Load balancing between available relays
+- Automatic failover on connection issues
+- Smart retry with exponential backoff
+- Event verification across multiple relays
 ```
 
 ## Development
