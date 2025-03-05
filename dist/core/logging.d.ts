@@ -1,4 +1,5 @@
-export declare const logger: any;
+import winston from 'winston';
+export declare const logger: winston.Logger;
 export declare function requestLogger(enabled?: boolean): (req: any, res: any, next: () => void) => void;
 export declare class PerformanceMonitor {
     private static timers;

@@ -36,6 +36,7 @@ Our documentation is organized into several comprehensive guides:
 - [**Security Best Practices**](docs/SECURITY.md) - Security guidelines and implementation
 - [**Plugin Development**](docs/PLUGINS.md) - Guide for creating and managing plugins
 - [**Commerce Integration**](docs/COMMERCE.md) - Payment processing and commerce features
+- [**Nostr Wallet Connect**](docs/NWC.md) - NWC integration guide
 
 ## Quick Start
 
@@ -76,6 +77,7 @@ npm run build
 
 ```typescript
 import { NostrCommerce } from 'nostr-commerce-framework';
+import { NostrWalletConnect } from 'nostr-commerce-framework/nwc';
 
 // Initialize the framework with Primal relay
 const framework = new NostrCommerce({
@@ -87,13 +89,28 @@ const framework = new NostrCommerce({
 // Start the framework
 await framework.start();
 
+// Initialize NWC (optional)
+const nwc = new NostrWalletConnect({
+  relayUrl: 'wss://relay.primal.net'
+});
+
+// Connect to user's wallet
+await nwc.connect('wallet-pubkey');
+
 // Create an invoice
 const invoice = await framework.commerce.createInvoice({
   amount: 1000, // sats
   description: 'Test payment'
 });
 
-// Process a Lightning payment
+// Process payment through NWC
+const payment = await nwc.payInvoice({
+  amount: 1000,
+  invoice: invoice,
+  comment: 'Test payment'
+});
+
+// Or handle traditional Lightning/Zap payments
 framework.commerce.on('paymentReceived', (payment) => {
   console.log('Payment received:', payment);
 });
