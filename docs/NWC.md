@@ -1,198 +1,172 @@
 # Nostr Wallet Connect Integration
 
-The Nostr Commerce Framework includes support for [Nostr Wallet Connect (NWC)](https://nwc.dev/), enabling seamless integration with Lightning wallets that support the NWC protocol.
-
 ## Overview
 
-Nostr Wallet Connect allows web applications to interact with Lightning wallets using Nostr as a secure communication channel. This integration enables:
+The Nostr Commerce Framework provides comprehensive support for [Nostr Wallet Connect (NWC)](https://nwc.dev/), enabling seamless integration with Lightning wallets. This implementation follows NIP-47 and provides a robust, production-ready solution for Lightning payments.
 
-- Direct Lightning payments through user's preferred wallet
-- No need to manage Lightning nodes
-- Secure, end-to-end encrypted communication
-- Support for multiple wallet providers
+## Features
 
-## Usage
+- 🔐 Secure wallet connections
+- ⚡ Lightning payment processing
+- 📝 Invoice generation
+- 🔄 Automatic reconnection
+- 🛡️ Error handling
+- 📊 Payment status tracking
+- 🔍 Wallet capability detection
+- 📨 Message encryption (NIP-04)
+- ✍️ Message signing
 
-### Basic Setup
+## Quick Start
 
 ```typescript
-import { NostrCommerce } from 'nostr-commerce-framework';
 import { NostrWalletConnect } from 'nostr-commerce-framework/nwc';
-
-// Initialize the framework
-const framework = new NostrCommerce({
-  relays: ['wss://relay.damus.io'],
-  publicKey: 'your-public-key',
-  privateKey: 'your-private-key'
-});
 
 // Initialize NWC
 const nwc = new NostrWalletConnect({
-  relayUrl: 'wss://relay.damus.io'
+  relayUrl: 'wss://relay.damus.io',
+  autoReconnect: true
 });
 
 // Connect to wallet
-await nwc.connect('wallet-pubkey');
+const connection = await nwc.connect('wallet-pubkey');
+console.log('Connected with capabilities:', connection.capabilities);
+
+// Process payment
+const payment = await nwc.payInvoice({
+  amount: 1000,
+  invoice: 'lnbc...',
+  comment: 'Test payment'
+});
+console.log('Payment successful:', payment);
 ```
 
-### Making Payments
+## Advanced Usage
+
+### Connection Management
 
 ```typescript
-// Create an invoice payment
-const payment = await nwc.payInvoice({
-  amount: 1000,  // Amount in sats
-  invoice: 'lnbc...', // BOLT11 invoice
-  comment: 'Payment for product'  // Optional comment
+const nwc = new NostrWalletConnect({
+  relayUrl: 'wss://relay.damus.io',
+  autoReconnect: true,
+  maxRetries: 3,
+  connectionTimeout: 30000,
+  paymentTimeout: 60000
 });
 
-console.log('Payment successful:', payment);
-// {
-//   preimage: '...',
-//   paymentHash: '...',
-//   amount: 1000,
-//   timestamp: 1678901234
-// }
-```
-
-### Event Handling
-
-```typescript
-// Listen for connection events
+// Handle connection events
 nwc.on('connected', (info) => {
   console.log('Connected to wallet:', info);
+  console.log('Supported capabilities:', info.capabilities);
 });
 
-// Listen for payment events
-nwc.on('payment', (payment) => {
-  console.log('Payment completed:', payment);
+nwc.on('disconnected', () => {
+  console.log('Disconnected from wallet');
 });
 
-// Handle errors
 nwc.on('error', (error) => {
   console.error('NWC error:', error);
 });
+
+// Check connection status
+if (nwc.isConnected()) {
+  const capabilities = nwc.getCapabilities();
+  console.log('Current capabilities:', capabilities);
+}
 ```
 
-### Integration with Commerce Module
+### Payment Processing
 
 ```typescript
-// Create a commerce instance with NWC support
-const commerce = framework.commerce.withNWC(nwc);
-
-// Create an invoice
-const invoice = await commerce.createInvoice({
-  amount: 1000,
-  description: 'Product purchase'
-});
-
-// Payment will be handled through NWC
-commerce.on('paymentReceived', (payment) => {
-  console.log('Payment received:', payment);
-});
-```
-
-## Wallet Support
-
-The following wallets currently support NWC:
-
-- Alby
-- Mutiny Wallet
-- Snort.social
-- More coming soon...
-
-## Security Considerations
-
-1. **Key Management**
-   - NWC uses separate keypairs for each connection
-   - Keys should be stored securely
-   - Consider implementing key rotation
-
-2. **Relay Selection**
-   - Use reliable relays for NWC communication
-   - Consider using multiple relays for redundancy
-   - Monitor relay health and performance
-
-3. **Payment Verification**
-   - Always verify payment completion
-   - Check payment amounts match expected values
-   - Implement proper error handling
-
-## Error Handling
-
-```typescript
+// Create and pay invoice
 try {
-  await nwc.payInvoice({
+  // Create invoice
+  const invoice = await nwc.createInvoice(1000, 'Product purchase');
+  
+  // Process payment
+  const payment = await nwc.payInvoice({
     amount: 1000,
-    invoice: 'lnbc...'
+    invoice,
+    comment: 'Product purchase',
+    externalId: 'order-123', // For tracking
+    timeout: 120000 // Custom timeout
+  });
+
+  console.log('Payment successful:', {
+    amount: payment.amount,
+    hash: payment.paymentHash,
+    fee: payment.fee
   });
 } catch (error) {
-  if (error.message === 'Not connected to wallet') {
-    // Handle connection error
-  } else if (error.message === 'Payment timeout') {
+  if (error.message === 'Payment timeout') {
     // Handle timeout
+  } else if (error.message === 'Insufficient funds') {
+    // Handle insufficient funds
   } else {
     // Handle other errors
   }
 }
 ```
 
-## Best Practices
+### Secure Messaging
 
-1. **Connection Management**
-   ```typescript
-   // Implement reconnection logic
-   nwc.on('disconnected', async () => {
-     try {
-       await nwc.connect(walletPubkey);
-     } catch (error) {
-       console.error('Reconnection failed:', error);
-     }
-   });
-   ```
+```typescript
+// Sign message
+const signature = await nwc.signMessage('Hello, Nostr!');
 
-2. **Payment Timeouts**
-   ```typescript
-   // Configure custom timeout
-   const payment = await nwc.payInvoice({
-     amount: 1000,
-     invoice: 'lnbc...',
-     timeout: 120000  // 2 minutes
-   });
-   ```
+// Encrypt message
+const encrypted = await nwc.encryptMessage(
+  'Secret message',
+  recipientPubkey
+);
 
-3. **Error Recovery**
-   ```typescript
-   // Implement retry logic
-   async function retryPayment(invoice, maxAttempts = 3) {
-     for (let i = 0; i < maxAttempts; i++) {
-       try {
-         return await nwc.payInvoice(invoice);
-       } catch (error) {
-         if (i === maxAttempts - 1) throw error;
-         await new Promise(r => setTimeout(r, 1000 * (i + 1)));
-       }
-     }
-   }
-   ```
+// Decrypt message
+const decrypted = await nwc.decryptMessage(
+  encryptedMessage,
+  senderPubkey
+);
+```
 
-## Examples
+### Wallet Information
+
+```typescript
+// Get wallet info
+const info = await nwc.getInfo();
+console.log('Wallet info:', {
+  balance: info.balance,
+  network: info.network,
+  features: info.features
+});
+
+// Check capabilities
+if (nwc.hasCapability('payInvoice')) {
+  console.log('Wallet can pay invoices');
+}
+
+// Get last known balance
+const balance = nwc.getLastKnownBalance();
+```
+
+## Integration Patterns
 
 ### E-commerce Integration
 
 ```typescript
-class ProductCheckout {
+class PaymentProcessor {
   constructor(private nwc: NostrWalletConnect) {}
 
   async processOrder(order: Order) {
-    // Create invoice
-    const invoice = await this.createInvoice(order);
-
-    // Process payment through NWC
     try {
+      // Create invoice
+      const invoice = await this.nwc.createInvoice(
+        order.amount,
+        `Order ${order.id}`
+      );
+
+      // Process payment
       const payment = await this.nwc.payInvoice({
         amount: order.amount,
-        invoice: invoice.bolt11,
-        comment: `Order #${order.id}`
+        invoice,
+        externalId: order.id
       });
 
       // Verify payment
@@ -210,20 +184,149 @@ class ProductCheckout {
 
 ```typescript
 class SubscriptionManager {
-  constructor(private nwc: NostrWalletConnect) {}
+  constructor(private nwc: NostrWalletConnect) {
+    this.setupEventHandlers();
+  }
 
-  async processSubscription(sub: Subscription) {
-    // Handle recurring payments
-    this.nwc.on('payment', (payment) => {
-      if (payment.amount === sub.amount) {
-        this.extendSubscription(sub, payment);
+  private setupEventHandlers() {
+    this.nwc.on('payment', this.handlePayment.bind(this));
+    this.nwc.on('disconnected', this.handleDisconnect.bind(this));
+  }
+
+  async createSubscription(userId: string, plan: Plan) {
+    const invoice = await this.nwc.createInvoice(
+      plan.amount,
+      `Subscription: ${plan.name}`
+    );
+
+    return {
+      userId,
+      planId: plan.id,
+      invoice,
+      status: 'pending'
+    };
+  }
+}
+```
+
+### Error Recovery
+
+```typescript
+class PaymentRetryHandler {
+  async retryPayment(
+    invoice: string,
+    maxAttempts = 3,
+    backoff = 1000
+  ) {
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        return await this.nwc.payInvoice({
+          amount: 1000,
+          invoice,
+          timeout: backoff * attempt
+        });
+      } catch (error) {
+        if (attempt === maxAttempts) throw error;
+        await new Promise(r => setTimeout(r, backoff * attempt));
       }
-    });
+    }
+  }
+}
+```
+
+## Best Practices
+
+### 1. Connection Management
+
+- Always handle disconnection events
+- Implement reconnection logic
+- Monitor connection health
+- Verify wallet capabilities
+
+```typescript
+nwc.on('disconnected', async () => {
+  console.log('Disconnected, attempting to reconnect...');
+  try {
+    await nwc.connect(walletPubkey);
+  } catch (error) {
+    console.error('Reconnection failed:', error);
+  }
+});
+```
+
+### 2. Error Handling
+
+- Implement comprehensive error handling
+- Use appropriate timeouts
+- Handle specific error cases
+- Provide clear error messages
+
+```typescript
+try {
+  await nwc.payInvoice(request);
+} catch (error) {
+  switch (error.message) {
+    case 'Not connected to wallet':
+      // Handle connection error
+      break;
+    case 'Payment timeout':
+      // Handle timeout
+      break;
+    case 'Insufficient funds':
+      // Handle insufficient funds
+      break;
+    default:
+      // Handle unknown error
+  }
+}
+```
+
+### 3. Payment Verification
+
+- Always verify payment amounts
+- Check payment status
+- Implement idempotency
+- Handle partial payments
+
+```typescript
+function verifyPayment(payment: PaymentResponse, expected: number) {
+  if (payment.amount !== expected) {
+    throw new Error('Payment amount mismatch');
+  }
+  // Additional verification...
+}
+```
+
+### 4. Security Considerations
+
+- Secure key management
+- Validate all inputs
+- Implement rate limiting
+- Monitor for suspicious activity
+
+```typescript
+class SecurityManager {
+  private rateLimiter = new RateLimiter();
+
+  async validatePayment(request: PaymentRequest) {
+    // Check rate limits
+    if (!this.rateLimiter.checkLimit(request.amount)) {
+      throw new Error('Rate limit exceeded');
+    }
+
+    // Validate amount
+    if (request.amount <= 0 || request.amount > MAX_AMOUNT) {
+      throw new Error('Invalid amount');
+    }
+
+    // Additional validation...
   }
 }
 ```
 
 ## Testing
+
+### Unit Tests
 
 ```typescript
 describe('NostrWalletConnect', () => {
@@ -236,8 +339,8 @@ describe('NostrWalletConnect', () => {
   });
 
   it('should connect to wallet', async () => {
-    await nwc.connect('test-pubkey');
-    expect(nwc.isConnected()).toBe(true);
+    const info = await nwc.connect('test-pubkey');
+    expect(info.status).toBe('connected');
   });
 
   it('should process payments', async () => {
@@ -250,14 +353,41 @@ describe('NostrWalletConnect', () => {
 });
 ```
 
+### Integration Tests
+
+```typescript
+describe('NWC Integration', () => {
+  it('should complete e-commerce flow', async () => {
+    // Setup
+    const app = new EcommerceApp();
+    await app.start();
+
+    // Connect wallet
+    await app.connectWallet('test-pubkey');
+
+    // Create order
+    const order = await app.createOrder('product1', {
+      email: 'test@example.com'
+    });
+
+    // Process payment
+    const result = await app.processPayment(order);
+    expect(result.status).toBe('success');
+
+    // Cleanup
+    await app.disconnect();
+  });
+});
+```
+
 ## Troubleshooting
 
-Common issues and solutions:
+### Common Issues
 
 1. **Connection Issues**
    - Check relay connectivity
    - Verify wallet public key
-   - Ensure proper key permissions
+   - Ensure proper permissions
 
 2. **Payment Failures**
    - Verify invoice validity
@@ -269,8 +399,29 @@ Common issues and solutions:
    - Check network connectivity
    - Verify relay responsiveness
 
+### Debugging
+
+```typescript
+// Enable debug mode
+const nwc = new NostrWalletConnect({
+  relayUrl: 'wss://relay.damus.io',
+  debug: true
+});
+
+// Log all events
+nwc.on('*', (event) => {
+  console.log('NWC Event:', event);
+});
+
+// Monitor relay status
+nwc.on('relay', (status) => {
+  console.log('Relay status:', status);
+});
+```
+
 ## Resources
 
 - [NWC Protocol Specification](https://nwc.dev/docs)
-- [NWC GitHub Repository](https://github.com/nostr-protocol/nwc)
-- [Nostr NIPs](https://github.com/nostr-protocol/nips)
+- [NIP-47 Specification](https://github.com/nostr-protocol/nips/blob/master/47.md)
+- [Nostr Implementation Guide](https://github.com/nostr-protocol/nips)
+- [Example Implementation](https://github.com/StevenGeller/nostr-commerce-framework/tree/main/examples)
