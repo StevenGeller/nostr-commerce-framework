@@ -17,14 +17,16 @@
     "nostr-tools": "^1.17.0",
     "websocket-polyfill": "^0.0.3",
     "util": "^0.12.5",
-    "winston": "^3.10.0",
-    "nostr-wallet-connect": "^0.1.0"
+    "winston": "^3.10.0"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
     "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
     "@types/jest": "^29.5.5",
-    "@types/events": "^3.0.1"
+    "@types/events": "^3.0.1",
+    "@types/ws": "^8.5.10",
+    "ws": "^8.16.0"
   },
   "exports": {
     ".": "./dist/index.js",

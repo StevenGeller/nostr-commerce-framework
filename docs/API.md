@@ -225,3 +225,4 @@ For more examples and detailed documentation, visit:
 - [Commerce Integration Guide](COMMERCE.md)
 - [Security Best Practices](SECURITY.md)
 - [Plugin Development](PLUGINS.md)
+- [Nostr Wallet Connect Integration](NWC.md)
