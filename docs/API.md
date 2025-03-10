@@ -222,6 +222,6 @@ await framework.stop();
 ```
 
 For more examples and detailed documentation, visit:
-- [Commerce Integration Guide](docs/COMMERCE.md)
-- [Security Best Practices](docs/SECURITY.md)
-- [Plugin Development](docs/PLUGINS.md)
+- [Commerce Integration Guide](COMMERCE.md)
+- [Security Best Practices](SECURITY.md)
+- [Plugin Development](PLUGINS.md)
