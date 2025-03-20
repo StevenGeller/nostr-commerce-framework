@@ -1,7 +1,11 @@
 export enum ErrorCode {
   // Connection Errors
+  CONNECTION_FAILED = 'CONNECTION_FAILED',
+  NOT_CONNECTED = 'NOT_CONNECTED',
   RELAY_CONNECTION_FAILED = 'RELAY_CONNECTION_FAILED',
   CONNECTION_TIMEOUT = 'CONNECTION_TIMEOUT',
+  CONNECTION_LIMIT_EXCEEDED = 'CONNECTION_LIMIT_EXCEEDED',
+  RELAY_TIMEOUT = 'RELAY_TIMEOUT',
   MAX_CONNECTIONS_EXCEEDED = 'MAX_CONNECTIONS_EXCEEDED',
 
   // Configuration Errors
@@ -13,78 +17,34 @@ export enum ErrorCode {
   EVENT_VALIDATION_FAILED = 'EVENT_VALIDATION_FAILED',
   PUBLISH_FAILED = 'PUBLISH_FAILED',
   SUBSCRIPTION_FAILED = 'SUBSCRIPTION_FAILED',
+  INVALID_EVENT = 'INVALID_EVENT',
 
-  // Commerce Errors
-  INVALID_AMOUNT = 'INVALID_AMOUNT',
-  INSUFFICIENT_FUNDS = 'INSUFFICIENT_FUNDS',
-  PAYMENT_FAILED = 'PAYMENT_FAILED',
-  INVOICE_EXPIRED = 'INVOICE_EXPIRED',
-  INVOICE_NOT_FOUND = 'INVOICE_NOT_FOUND',
-  PAYMENT_VERIFICATION_FAILED = 'PAYMENT_VERIFICATION_FAILED',
+  // Message Queue Errors
+  INVALID_MESSAGE_TYPE = 'INVALID_MESSAGE_TYPE',
+  QUEUE_FULL = 'QUEUE_FULL',
 
   // Security Errors
+  ENCRYPTION_FAILED = 'ENCRYPTION_FAILED',
+  DECRYPTION_FAILED = 'DECRYPTION_FAILED',
   UNAUTHORIZED = 'UNAUTHORIZED',
+  FORBIDDEN = 'FORBIDDEN',
   RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED',
   INVALID_SIGNATURE = 'INVALID_SIGNATURE',
 
-  // Plugin Errors
-  PLUGIN_REGISTRATION_FAILED = 'PLUGIN_REGISTRATION_FAILED',
-  PLUGIN_INITIALIZATION_FAILED = 'PLUGIN_INITIALIZATION_FAILED',
-  PLUGIN_NOT_FOUND = 'PLUGIN_NOT_FOUND',
+  // Commerce Errors
+  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  INVOICE_CREATION_FAILED = 'INVOICE_CREATION_FAILED',
+  INVOICE_NOT_FOUND = 'INVOICE_NOT_FOUND',
+  PAYMENT_VERIFICATION_FAILED = 'PAYMENT_VERIFICATION_FAILED',
+  INSUFFICIENT_FUNDS = 'INSUFFICIENT_FUNDS',
 
-  // General Errors
+  // Resource Errors
+  NOT_FOUND = 'NOT_FOUND',
+  ALREADY_EXISTS = 'ALREADY_EXISTS',
+  RESOURCE_UNAVAILABLE = 'RESOURCE_UNAVAILABLE',
+
+  // System Errors
   INTERNAL_ERROR = 'INTERNAL_ERROR',
-  INVALID_PARAMETER = 'INVALID_PARAMETER',
-  NOT_IMPLEMENTED = 'NOT_IMPLEMENTED'
+  NOT_IMPLEMENTED = 'NOT_IMPLEMENTED',
+  SERVICE_UNAVAILABLE = 'SERVICE_UNAVAILABLE'
 }
-
-export class NostrError extends Error {
-  constructor(
-    public code: ErrorCode,
-    message: string,
-    public details?: any
-  ) {
-    super(message);
-    this.name = 'NostrError';
-    Object.setPrototypeOf(this, NostrError.prototype);
-  }
-}
-
-// Error factory functions for common errors
-export const createConnectionError = (relay: string, details?: any) => 
-  new NostrError(
-    ErrorCode.RELAY_CONNECTION_FAILED,
-    `Failed to connect to relay: ${relay}`,
-    details
-  );
-
-export const createPublishError = (details?: any) =>
-  new NostrError(
-    ErrorCode.PUBLISH_FAILED,
-    'Failed to publish event',
-    details
-  );
-
-export const createValidationError = (message: string, details?: any) =>
-  new NostrError(
-    ErrorCode.EVENT_VALIDATION_FAILED,
-    message,
-    details
-  );
-
-export const createAuthError = (message: string, details?: any) =>
-  new NostrError(
-    ErrorCode.UNAUTHORIZED,
-    message,
-    details
-  );
-
-export const createRateLimitError = (details?: any) =>
-  new NostrError(
-    ErrorCode.RATE_LIMIT_EXCEEDED,
-    'Rate limit exceeded',
-    details
-  );
-
-export const createPaymentError = (message: string, code: ErrorCode, details?: any) =>
-  new NostrError(code, message, details);

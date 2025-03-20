@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostr Digital Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/nostr-tools/lib/nostr.bundle.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Nostr Digital Store</h1>
+            <p class="text-gray-600">Purchase digital products using Lightning Network on Nostr</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% products.forEach(product => { %>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-semibold mb-2"><%= product.name %></h2>
+                    <p class="text-gray-600 mb-4"><%= product.description %></p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold"><%= product.price %> sats</span>
+                        <button 
+                            onclick="purchaseProduct('<%= product.id %>')"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                            Purchase
+                        </button>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg max-w-md w-full">
+            <h3 class="text-xl font-bold mb-4">Complete Purchase</h3>
+            <div id="invoiceDetails" class="mb-4">
+                <p class="mb-2">Amount: <span id="invoiceAmount"></span> sats</p>
+                <p class="mb-2">Description: <span id="invoiceDescription"></span></p>
+                <div id="qrCodeContainer" class="text-center"></div>
+            </div>
+            <div class="flex justify-end">
+                <button 
+                    onclick="closeModal()"
+                    class="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600 transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/lib/browser.min.js"></script>
+    <script>
+        let currentOrderId = null;
+        let paymentCheckInterval = null;
+
+        async function purchaseProduct(productId) {
+            try {
+                // Get the buyer's public key (in a real app, this would come from their Nostr client)
+                const buyerPubkey = window.nostr ? await window.nostr.getPublicKey() : 'example-buyer-pubkey';
+                
+                // Create order
+                const response = await fetch('/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        productId,
+                        buyerPubkey
+                    })
+                });
+
+                const order = await response.json();
+                if (order.error) {
+                    throw new Error(order.error);
+                }
+
+                // Show invoice details
+                document.getElementById('invoiceAmount').textContent = order.amount;
+                document.getElementById('invoiceDescription').textContent = order.description;
+                
+                // Generate QR code
+                const qrContainer = document.getElementById('qrCodeContainer');
+                qrContainer.innerHTML = '';
+                await QRCode.toCanvas(qrContainer, order.invoice, {
+                    width: 256,
+                    margin: 1
+                });
+
+                // Show modal
+                document.getElementById('purchaseModal').classList.remove('hidden');
+                
+                // Store order ID
+                currentOrderId = order.orderId;
+
+                // Start checking for payment
+                startPaymentCheck();
+
+            } catch (error) {
+                console.error('Purchase error:', error);
+                alert('Failed to create order: ' + error.message);
+            }
+        }
+
+        function startPaymentCheck() {
+            if (paymentCheckInterval) {
+                clearInterval(paymentCheckInterval);
+            }
+
+            paymentCheckInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/verify-payment/${currentOrderId}`);
+                    const result = await response.json();
+                    
+                    if (result.paid) {
+                        clearInterval(paymentCheckInterval);
+                        closeModal();
+                        alert('Payment received! Check your Nostr DMs for delivery information.');
+                    }
+                } catch (error) {
+                    console.error('Payment check error:', error);
+                }
+            }, 5000); // Check every 5 seconds
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+            if (paymentCheckInterval) {
+                clearInterval(paymentCheckInterval);
+            }
+        }
+    </script>
+</body>
+</html>

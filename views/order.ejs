@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Nostr Digital Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-bold mb-4">Order Details</h1>
+            
+            <div class="mb-4">
+                <p class="text-gray-600">Order ID: <%= order.id %></p>
+                <p class="text-gray-600">Status: <span class="font-semibold"><%= order.status %></span></p>
+                <p class="text-gray-600">Created: <%= new Date(order.createdAt).toLocaleString() %></p>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Product</h2>
+                <p class="text-gray-600">Name: <%= order.product.name %></p>
+                <p class="text-gray-600">Price: <%= order.product.price %> sats</p>
+            </div>
+
+            <% if (order.status === 'paid') { %>
+                <div class="mb-4">
+                    <h2 class="text-xl font-semibold mb-2">Delivery Information</h2>
+                    <p class="text-gray-600">Paid at: <%= new Date(order.paidAt).toLocaleString() %></p>
+                    <p class="text-gray-600">Check your Nostr DMs for delivery details</p>
+                </div>
+            <% } else { %>
+                <div class="mb-4">
+                    <h2 class="text-xl font-semibold mb-2">Payment</h2>
+                    <p class="text-gray-600 mb-2">Invoice:</p>
+                    <div id="qrCodeContainer" class="text-center"></div>
+                </div>
+            <% } %>
+
+            <div class="mt-6">
+                <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                    Back to Store
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <% if (order.status === 'pending') { %>
+        <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/lib/browser.min.js"></script>
+        <script>
+            // Generate QR code for the invoice
+            QRCode.toCanvas(document.getElementById('qrCodeContainer'), '<%= order.invoice %>', {
+                width: 256,
+                margin: 1
+            });
+
+            // Check payment status periodically
+            setInterval(async () => {
+                try {
+                    const response = await fetch('/verify-payment/<%= order.id %>');
+                    const result = await response.json();
+                    
+                    if (result.paid) {
+                        window.location.reload();
+                    }
+                } catch (error) {
+                    console.error('Payment check error:', error);
+                }
+            }, 5000);
+        </script>
+    <% } %>
+</body>
+</html>

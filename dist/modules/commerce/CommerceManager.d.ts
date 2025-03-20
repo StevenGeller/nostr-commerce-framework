@@ -1,27 +1,64 @@
-import { CommerceModule } from '../../core/types';
-import { NostrCommerce } from '../../core/NostrCommerce';
-export declare class CommerceManager implements CommerceModule {
-    private framework;
+/// <reference types="node" />
+import { EventEmitter } from 'events';
+import { CommerceModule, InvoiceOptions, TipOptions } from '../../types';
+interface Order {
+    id: string;
+    items: OrderItem[];
+    total: number;
+    status: OrderStatus;
+    customerPubkey: string;
+    createdAt: number;
+    updatedAt: number;
+    metadata?: Record<string, any>;
+}
+interface OrderItem {
+    id: string;
+    quantity: number;
+    price: number;
+    metadata?: Record<string, any>;
+}
+type OrderStatus = 'pending' | 'paid' | 'fulfilled' | 'cancelled' | 'rejected';
+export declare class CommerceManager extends EventEmitter implements CommerceModule {
+    private pubkey;
+    private orders;
     private invoices;
-    constructor(framework: NostrCommerce);
+    private nwc;
+    constructor(pubkey: string);
     /**
-     * Create a new invoice for payment
+     * Connect to a Nostr Wallet
      */
-    createInvoice(amount: number, description: string): Promise<string>;
+    connectWallet(connectionString: string): Promise<void>;
     /**
-     * Process a tip to a recipient
+     * Create a new order
      */
-    processTip(recipient: string, amount: number): Promise<string>;
+    createOrder(items: OrderItem[], customerPubkey: string, metadata?: Record<string, any>): Promise<Order>;
     /**
-     * Verify if a payment has been received
+     * Create an invoice for an order
+     */
+    createInvoice(options: InvoiceOptions): Promise<string>;
+    /**
+     * Process a tip payment
+     */
+    processTip(options: TipOptions): Promise<string>;
+    /**
+     * Verify a payment
      */
     verifyPayment(invoiceId: string): Promise<boolean>;
     /**
-     * Set up listener for incoming payments
+     * Get order details
      */
-    private setupPaymentListener;
+    getOrder(orderId: string): Order | undefined;
+    /**
+     * Update order status
+     */
+    updateOrderStatus(orderId: string, status: OrderStatus): Promise<void>;
+    /**
+     * Handle incoming payment notifications
+     */
+    private handlePaymentNotification;
     /**
      * Clean up resources
      */
     cleanup(): void;
 }
+export {};

@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RateLimiter = exports.eventValidator = exports.Validator = void 0;
-exports.sanitizeContent = sanitizeContent;
-exports.validatePaymentAmount = validatePaymentAmount;
+exports.RateLimiter = exports.validatePaymentAmount = exports.sanitizeContent = exports.eventValidator = exports.Validator = void 0;
 const errors_1 = require("./errors");
 const logging_1 = require("./logging");
 class Validator {
@@ -54,6 +52,7 @@ function sanitizeContent(content) {
     content = content.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
     return content.trim();
 }
+exports.sanitizeContent = sanitizeContent;
 // Payment amount validation
 function validatePaymentAmount(amount) {
     if (typeof amount !== 'number' || isNaN(amount)) {
@@ -66,6 +65,7 @@ function validatePaymentAmount(amount) {
         throw new errors_1.NostrError(errors_1.ErrorCode.INVALID_AMOUNT, 'Payment amount must be an integer', { amount });
     }
 }
+exports.validatePaymentAmount = validatePaymentAmount;
 // Rate limiting
 class RateLimiter {
     constructor(windowMs = 60000, maxRequests = 100) {

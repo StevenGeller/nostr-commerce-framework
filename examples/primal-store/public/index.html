@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primal Test Store</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .cart {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+        .cart-items {
+            margin: 10px 0;
+        }
+        button {
+            background: #1d9bf0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1a8cd8;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Primal Test Store</h1>
+    <div id="store-info"></div>
+    
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <div class="cart-items"></div>
+        <div id="cart-total">Total: $0.00</div>
+        <button onclick="checkout()" id="checkout-btn">Checkout with Nostr</button>
+        <div id="status"></div>
+    </div>
+
+    <div class="products" id="products"></div>
+
+    <script>
+        let cart = new Map();
+        let products = [];
+        let pubkey = localStorage.getItem('nostr_pubkey');
+
+        // Load store data
+        async function loadStore() {
+            const response = await fetch('/api/store');
+            const store = await response.json();
+            
+            document.getElementById('store-info').innerHTML = `
+                <p>${store.description}</p>
+            `;
+
+            products = store.products;
+            displayProducts();
+        }
+
+        // Display products
+        function displayProducts() {
+            const container = document.getElementById('products');
+            container.innerHTML = products.map(product => `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <button onclick="addToCart('${product.id}')">Add to Cart</button>
+                </div>
+            `).join('');
+        }
+
+        // Cart management
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const quantity = cart.get(productId) || 0;
+            cart.set(productId, quantity + 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const items = document.querySelector('.cart-items');
+            let total = 0;
+
+            items.innerHTML = Array.from(cart.entries()).map(([id, quantity]) => {
+                const product = products.find(p => p.id === id);
+                total += product.price * quantity;
+                return `
+                    <div>
+                        ${product.name} x ${quantity}
+                        <button onclick="removeFromCart('${id}')">Remove</button>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(productId) {
+            cart.delete(productId);
+            updateCart();
+        }
+
+        // Checkout process
+        async function checkout() {
+            if (!pubkey) {
+                showStatus('Please connect your Nostr client first', 'error');
+                return;
+            }
+
+            const items = Array.from(cart.entries()).map(([id, quantity]) => ({
+                id,
+                quantity
+            }));
+
+            try {
+                const response = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        items,
+                        customerPubkey: pubkey
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showStatus(`Order created! Order ID: ${result.orderId}`, 'success');
+                    // Clear cart after successful order
+                    cart.clear();
+                    updateCart();
+                    // Start monitoring order status
+                    monitorOrder(result.orderId);
+                } else {
+                    showStatus('Failed to create order: ' + result.error, 'error');
+                }
+            } catch (error) {
+                showStatus('Error creating order: ' + error.message, 'error');
+            }
+        }
+
+        async function monitorOrder(orderId) {
+            const checkStatus = async () => {
+                try {
+                    const response = await fetch(`/api/orders/${orderId}`);
+                    const order = await response.json();
+                    
+                    if (order.status === 'paid') {
+                        showStatus('Payment received! Order confirmed.', 'success');
+                        return;
+                    } else if (order.status === 'rejected') {
+                        showStatus('Order was rejected: ' + order.rejectionReason, 'error');
+                        return;
+                    }
+                    
+                    // Continue monitoring if order is still pending
+                    setTimeout(checkStatus, 5000);
+                } catch (error) {
+                    showStatus('Error checking order status: ' + error.message, 'error');
+                }
+            };
+
+            checkStatus();
+        }
+
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+
+        // Initialize
+        loadStore();</script>
+</body>
+</html>
